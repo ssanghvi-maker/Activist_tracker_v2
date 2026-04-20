@@ -1,1 +1,666 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)file:///C:/Users/ssang/Downloads/activist_tracker_10.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activist Tracker</title>
+<link href="./activist_tracker_files/css2" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c0f;--bg2:#111418;--bg3:#181c22;--bg4:#1e232b;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#e8e6e0;--muted:#7a7870;
+  --amber:#f0a500;--amber-dim:rgba(240,165,0,0.1);
+  --green:#3dba6e;--green-dim:rgba(61,186,110,0.09);
+  --red:#e05252;--red-dim:rgba(224,82,82,0.09);
+  --blue:#5b9cf6;--blue-dim:rgba(91,156,246,0.09);
+  --purple:#a082f0;--purple-dim:rgba(160,130,240,0.09);
+  --mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;min-height:100vh;}
+
+.hdr{border-bottom:1px solid var(--border);padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.logo{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--amber);letter-spacing:.06em;}
+.logo-sub{font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:2px;}
+.hdr-right{display:flex;align-items:center;gap:16px;}
+.clock{font-family:var(--mono);font-size:11px;color:var(--muted);}
+.updated{font-family:var(--mono);font-size:10px;color:var(--muted);background:var(--bg2);border:1px solid var(--border2);padding:3px 10px;border-radius:2px;}
+
+.tabs{display:flex;border-bottom:1px solid var(--border);}
+.tab{font-family:var(--mono);font-size:11px;padding:12px 24px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;letter-spacing:.04em;transition:all .15s;display:flex;align-items:center;gap:7px;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--amber);border-bottom-color:var(--amber);}
+.badge{font-size:9px;padding:1px 6px;border-radius:2px;background:var(--amber-dim);color:var(--amber);font-family:var(--mono);}
+.badge.live{background:var(--green-dim);color:var(--green);}
+
+.stats-bar{display:flex;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.stat{flex:1;min-width:120px;padding:12px 20px;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.slabel{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;}
+.sval{font-family:var(--mono);font-size:18px;font-weight:500;}
+.ssub{font-size:10px;color:var(--muted);margin-top:2px;}
+
+.controls{padding:11px 28px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.flabel{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-right:2px;}
+.chip{font-family:var(--mono);font-size:10px;padding:3px 10px;border-radius:2px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.chip:hover,.chip.on{border-color:var(--amber);color:var(--amber);background:var(--amber-dim);}
+.vdiv{width:1px;height:16px;background:var(--border2);}
+
+.intel{margin:0 28px 14px;background:var(--bg2);border:1px solid var(--border);padding:14px 18px;display:none;}
+.intel.show{display:block;}
+.ititle{font-family:var(--mono);font-size:10px;color:var(--amber);letter-spacing:.06em;margin-bottom:10px;}
+.igrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.il{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px;}
+.iv{font-family:var(--mono);font-size:13px;}
+
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+
+/* WATCHLIST */
+.twrap{padding:0 28px 32px;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;margin-top:14px;min-width:860px;}
+thead th{font-size:9px;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;padding:0 10px 9px;text-align:left;border-bottom:1px solid var(--border);font-weight:400;}
+tbody tr{border-bottom:1px solid var(--border);cursor:pointer;transition:background .1s;}
+tbody tr:hover,tbody tr.xrow{background:var(--bg2);}
+tbody td{padding:11px 10px;vertical-align:middle;}
+.tt{font-family:var(--mono);font-size:14px;font-weight:500;}
+.tn{font-size:11px;color:var(--muted);margin-top:1px;}
+
+.fp{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:2px;}
+.fp-Elliott{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(240,165,0,.2);}
+.fp-Starboard{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(91,156,246,.2);}
+.fp-MantleRidge{background:var(--green-dim);color:var(--green);border:1px solid rgba(61,186,110,.2);}
+.fp-Ancora{background:var(--red-dim);color:var(--red);border:1px solid rgba(224,82,82,.2);}
+.fp-Greenlight{background:var(--purple-dim);color:var(--purple);border:1px solid rgba(160,130,240,.2);}
+
+.sp{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 8px;border-radius:2px;}
+.sp-Won{background:var(--green-dim);color:var(--green);border:1px solid rgba(61,186,110,.2);}
+.sp-Settled{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(91,156,246,.2);}
+.sp-Ongoing{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(240,165,0,.2);}
+
+.pup{font-family:var(--mono);font-weight:500;color:var(--green);}
+.pdn{font-family:var(--mono);font-weight:500;color:var(--red);}
+.pfl{font-family:var(--mono);color:var(--muted);}
+.mn{font-family:var(--mono);font-size:12px;}
+
+.sdots{display:flex;gap:4px;align-items:center;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--bg4);border:1px solid var(--border2);}
+.dot.done{background:var(--green);border-color:var(--green);}
+.dot.cur{background:var(--amber);border-color:var(--amber);}
+.slbl{font-size:10px;color:var(--muted);margin-top:3px;}
+
+.expwrap{border-top:1px solid var(--border);background:var(--bg2);padding:18px 22px;}
+.expgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.explbl{font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;}
+.exptxt{font-size:12px;color:var(--text);line-height:1.75;}
+
+/* EDGAR FEED */
+.feedwrap{padding:20px 28px;}
+.fnote{background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--amber);padding:12px 16px;font-size:12px;color:var(--muted);line-height:1.75;margin-bottom:18px;}
+.fnote strong{color:var(--text);}
+
+.ftable{width:100%;border-collapse:collapse;}
+.ftable thead th{font-size:9px;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;padding:0 10px 9px;text-align:left;border-bottom:1px solid var(--border);font-weight:400;}
+.ftable tbody tr{border-bottom:1px solid var(--border);transition:background .1s;}
+.ftable tbody tr:hover{background:var(--bg2);}
+.ftable tbody td{padding:10px 10px;vertical-align:middle;font-size:12px;}
+
+.feed-filter{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
+.finput{font-family:var(--mono);font-size:11px;background:var(--bg2);color:var(--text);border:1px solid var(--border2);padding:6px 12px;border-radius:2px;width:200px;}
+.finput:focus{outline:none;border-color:var(--amber);}
+.finput::placeholder{color:var(--muted);}
+.fselect{font-family:var(--mono);font-size:11px;background:var(--bg2);color:var(--text);border:1px solid var(--border2);padding:6px 12px;cursor:pointer;border-radius:2px;}
+.fselect option{background:var(--bg2);}
+
+.ftag{display:inline-block;font-family:var(--mono);font-size:10px;padding:2px 7px;border-radius:2px;}
+.ft13D{background:var(--amber-dim);color:var(--amber);border:1px solid rgba(240,165,0,.2);}
+.ft13DA{background:var(--bg3);color:var(--muted);border:1px solid var(--border2);}
+.ftDFAN{background:var(--red-dim);color:var(--red);border:1px solid rgba(224,82,82,.2);}
+
+.elink{font-family:var(--mono);font-size:11px;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border:1px solid rgba(91,156,246,.2);border-radius:2px;transition:all .15s;white-space:nowrap;}
+.elink:hover{background:var(--blue-dim);border-color:rgba(91,156,246,.4);}
+
+.empty{text-align:center;padding:56px 0;color:var(--muted);}
+.empty .big{font-family:var(--mono);font-size:26px;color:var(--border2);margin-bottom:10px;}
+
+.errbox{background:var(--red-dim);border:1px solid rgba(224,82,82,.25);padding:14px 18px;border-radius:2px;font-size:12px;color:#f0a0a0;line-height:1.8;margin-bottom:16px;}
+.errbox a{color:var(--amber);text-decoration:none;}
+.errbox code{font-family:var(--mono);font-size:11px;background:rgba(0,0,0,.3);padding:2px 6px;border-radius:2px;}
+
+.pgrow{display:flex;align-items:center;gap:8px;margin-top:14px;justify-content:flex-end;}
+.pgbtn{font-family:var(--mono);font-size:11px;padding:4px 12px;border:1px solid var(--border2);background:transparent;color:var(--muted);cursor:pointer;border-radius:2px;transition:all .15s;}
+.pgbtn:hover:not(:disabled){border-color:var(--amber);color:var(--amber);}
+.pgbtn:disabled{opacity:.3;cursor:not-allowed;}
+.pginfo{font-family:var(--mono);font-size:11px;color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div class="hdr">
+  <div>
+    <div class="logo">ACTIVIST // TRACKER</div>
+    <div class="logo-sub">Special Situations Intelligence</div>
+  </div>
+  <div class="hdr-right">
+    <span class="updated" id="updatedAt">Loading filings...</span>
+    <span class="clock" id="clock">APR 20, 2026 · 03:46:19 PM</span>
+  </div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" id="tab-wl" onclick="switchTab(&#39;wl&#39;)">Watchlist <span class="badge">14</span></div>
+  <div class="tab" id="tab-feed" onclick="switchTab(&#39;feed&#39;)">EDGAR Feed <span class="badge live" id="feedBadge">—</span></div>
+</div>
+
+<!-- ═══ WATCHLIST ═══════════════════════════════════════════════ -->
+<div class="tab-content active" id="content-wl">
+  <div class="stats-bar" id="statsBar">
+    <div class="stat"><div class="slabel">Campaigns</div><div class="sval">14</div><div class="ssub">Oct 2024 – Apr 2025</div></div>
+    <div class="stat"><div class="slabel">Ongoing</div><div class="sval" style="color:var(--amber)">6</div><div class="ssub">Unresolved pressure</div></div>
+    <div class="stat"><div class="slabel">Avg return</div><div class="sval" style="color:var(--green)">+4.7%</div><div class="ssub">Since announcement</div></div>
+    <div class="stat"><div class="slabel">Positive</div><div class="sval" style="color:var(--green)">6/14</div><div class="ssub">Stocks up from filing</div></div></div>
+  <div class="controls">
+    <span class="flabel">Fund</span>
+    <div id="fundChips"><span class="chip" data-t="f" data-v="Elliott">Elliott</span><span class="chip" data-t="f" data-v="Starboard">Starboard</span><span class="chip" data-t="f" data-v="Mantle Ridge">Mantle Ridge</span><span class="chip" data-t="f" data-v="Ancora">Ancora</span><span class="chip" data-t="f" data-v="Greenlight">Greenlight</span></div>
+    <div class="vdiv"></div>
+    <span class="flabel">Status</span>
+    <span class="chip" data-t="s" data-v="Ongoing" onclick="toggleChip(this)">Ongoing</span>
+    <span class="chip" data-t="s" data-v="Settled" onclick="toggleChip(this)">Settled</span>
+    <span class="chip" data-t="s" data-v="Won" onclick="toggleChip(this)">Won</span>
+    <div class="vdiv"></div>
+    <span class="chip on" onclick="clearAll()">All</span>
+  </div>
+  <div class="intel" id="intelPanel"></div>
+  <div class="twrap">
+    <table>
+      <thead><tr>
+        <th>Target</th><th>Fund</th><th>Filed</th><th>Demand</th>
+        <th>Stage</th><th>Status</th><th>Ann. price</th><th>Today</th><th>Return</th>
+      </tr></thead>
+      <tbody id="wlBody"><tr onclick="toggleX(1)" class="">
+      <td><div class="tt">PFE</div><div class="tn">Pfizer</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Operational overhaul, R&amp;D efficiency post-COVID cliff</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$28</td>
+      <td class="mn">$27.56</td>
+      <td><span class="pfl">-1.6%</span></td>
+    </tr>
+    <tr onclick="toggleX(2)" class="">
+      <td><div class="tt">ADSK</div><div class="tn">Autodesk</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Board refresh, margin expansion, FCF discipline</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$272</td>
+      <td class="mn">$242</td>
+      <td><span class="pdn">-11.0%</span></td>
+    </tr>
+    <tr onclick="toggleX(3)" class="">
+      <td><div class="tt">CRM</div><div class="tn">Salesforce</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Margin expansion, divest non-core M&amp;A (Slack, Tableau)</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$300</td>
+      <td class="mn">$268</td>
+      <td><span class="pdn">-10.7%</span></td>
+    </tr>
+    <tr onclick="toggleX(4)" class="">
+      <td><div class="tt">LUV</div><div class="tn">Southwest Airlines</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Nov 2024</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">CEO ouster, board overhaul, end open seating policy</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
+      <td><span class="sp sp-Won">Won</span></td>
+      <td class="mn">$27</td>
+      <td class="mn">$42.97</td>
+      <td><span class="pup">+59.1%</span></td>
+    </tr>
+    <tr onclick="toggleX(5)" class="">
+      <td><div class="tt">AAL.L</div><div class="tn">Anglo American</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Nov 2024</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Strategic review during BHP unsolicited takeover bid</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$25.8</td>
+      <td class="mn">$24.1</td>
+      <td><span class="pdn">-6.6%</span></td>
+    </tr>
+    <tr onclick="toggleX(6)" class="">
+      <td><div class="tt">HON</div><div class="tn">Honeywell</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Dec 2024</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Break up conglomerate — spin off aerospace division</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$207</td>
+      <td class="mn">$233</td>
+      <td><span class="pup">+12.6%</span></td>
+    </tr>
+    <tr onclick="toggleX(7)" class="">
+      <td><div class="tt">PTON</div><div class="tn">Peloton</div></td>
+      <td><span class="fp fp-Greenlight">Greenlight</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Explore strategic alternatives including full company sale</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$4.2</td>
+      <td class="mn">$5.8</td>
+      <td><span class="pup">+38.1%</span></td>
+    </tr>
+    <tr onclick="toggleX(8)" class="">
+      <td><div class="tt">X</div><div class="tn">US Steel</div></td>
+      <td><span class="fp fp-Ancora">Ancora</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Replace CEO, oppose Nippon Steel acquisition</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$38</td>
+      <td class="mn">$31.5</td>
+      <td><span class="pdn">-17.1%</span></td>
+    </tr>
+    <tr onclick="toggleX(9)" class="">
+      <td><div class="tt">APD</div><div class="tn">Air Products</div></td>
+      <td><span class="fp fp-MantleRidge">Mantle Ridge</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">CEO removal, exit hydrogen megaprojects, refocus core</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
+      <td><span class="sp sp-Won">Won</span></td>
+      <td class="mn">$289</td>
+      <td class="mn">$255</td>
+      <td><span class="pdn">-11.8%</span></td>
+    </tr>
+    <tr onclick="toggleX(10)" class="">
+      <td><div class="tt">BP</div><div class="tn">BP</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Accelerate asset sales, boost buybacks, cut renewables spend</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot cur" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Engagement</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$36.5</td>
+      <td class="mn">$31.2</td>
+      <td><span class="pdn">-14.5%</span></td>
+    </tr>
+    <tr onclick="toggleX(11)" class="">
+      <td><div class="tt">PSX</div><div class="tn">Phillips 66</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Sell DCP midstream assets, 4 board seats, operational review</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$140</td>
+      <td class="mn">$175</td>
+      <td><span class="pup">+25.0%</span></td>
+    </tr>
+    <tr onclick="toggleX(12)" class="">
+      <td><div class="tt">PEP</div><div class="tn">PepsiCo</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Mar 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Operational review, margin improvement vs Coca-Cola</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$145</td>
+      <td class="mn">$157</td>
+      <td><span class="pup">+8.3%</span></td>
+    </tr>
+    <tr onclick="toggleX(13)" class="">
+      <td><div class="tt">KVUE</div><div class="tn">Kenvue</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Mar 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Board refresh, strategic review of J&amp;J spin-off value</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$21.5</td>
+      <td class="mn">$17.35</td>
+      <td><span class="pdn">-19.3%</span></td>
+    </tr>
+    <tr onclick="toggleX(14)" class="">
+      <td><div class="tt">SBUX</div><div class="tn">Starbucks</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Apr 2025</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">CEO transition oversight, accelerate operational turnaround</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$83</td>
+      <td class="mn">$96</td>
+      <td><span class="pup">+15.7%</span></td>
+    </tr>
+    </tbody>
+    </table>
+    <div class="empty" id="wlEmpty" style="display:none">
+      <div class="big">—</div>No campaigns match filters
+    </div>
+  </div>
+</div>
+
+<!-- ═══ EDGAR FEED ══════════════════════════════════════════════ -->
+<div class="tab-content" id="content-feed">
+  <div class="feedwrap">
+
+    <div class="fnote">
+      Updated daily by GitHub Actions — fetches directly from <strong>SEC EDGAR</strong> every morning.<br>
+      Covers all activist funds — Elliott, Starboard, JANA, Icahn, Third Point, Barington, and everyone else.<br>
+      <strong>SC 13D</strong> = new stake &nbsp;·&nbsp;
+      <strong>SC 13D/A</strong> = amendment or demand letter &nbsp;·&nbsp;
+      <strong>DFAN14A</strong> = board letter or proxy campaign.<br>
+      Click <strong>↗ View filing</strong> to read the source document on EDGAR.
+    </div>
+
+    <div class="feed-filter">
+      <input class="finput" id="searchInput" placeholder="Search company or filer..." oninput="renderFeed()">
+      <select class="fselect" id="formFilter" onchange="renderFeed()">
+        <option value="">All types</option>
+        <option value="SC 13D">SC 13D — new stakes</option>
+        <option value="SC 13D/A">SC 13D/A — amendments</option>
+        <option value="DFAN14A">DFAN14A — board letters</option>
+      </select>
+    </div>
+
+    <div id="ferrbox" class="errbox" style="display: block;">
+      <strong>Filings not yet generated.</strong><br><br>
+      The GitHub Action hasn't run yet. To trigger it manually:<br><br>
+      1. Go to your GitHub repo<br>
+      2. Click the <strong>Actions</strong> tab<br>
+      3. Click <strong>Fetch EDGAR Filings</strong> in the left sidebar<br>
+      4. Click <strong>Run workflow</strong> → <strong>Run workflow</strong><br>
+      5. Wait ~30 seconds, then refresh this page<br><br>
+      After that it runs automatically every weekday morning.
+    </div>
+    <div id="fempty" class="empty" style="display:none">
+      <div class="big">📭</div>No filings match your filter.
+    </div>
+    <div id="floading" class="empty" style="display: none;">
+      <div class="big">·</div>
+      <div style="font-family:var(--mono);font-size:12px;color:var(--muted)">Loading filings...</div>
+    </div>
+
+    <table class="ftable" id="ftable" style="display:none">
+      <thead><tr>
+        <th>Filed</th><th>Type</th><th>Subject company</th><th>Filer (activist)</th><th style="width:140px">Document</th>
+      </tr></thead>
+      <tbody id="fbody"></tbody>
+    </table>
+
+    <div class="pgrow" id="pgrow" style="display:none"></div>
+
+  </div>
+</div>
+
+<script>
+// ═══ WATCHLIST DATA ═══════════════════════════════════════════════
+const C=[
+  {id:1,date:"Oct 2024",target:"Pfizer",ticker:"PFE",fund:"Starboard",demand:"Operational overhaul, R&D efficiency post-COVID cliff",status:"Ongoing",stage:2,ann:28.0,now:27.56,
+   thesis:"Starboard accumulated ~$1B stake citing margin contraction and failure to justify the $43B Seagen acquisition. Pushed for operational targets and new independent directors.",
+   hist:"Starboard typically resolves in 6–9 months via board settlement. Healthcare campaigns run longer. No settlement reached yet — Pfizer board has been resistant."},
+  {id:2,date:"Oct 2024",target:"Autodesk",ticker:"ADSK",fund:"Starboard",demand:"Board refresh, margin expansion, FCF discipline",status:"Settled",stage:4,ann:272,now:242,
+   thesis:"Targeted after accounting irregularities delayed filings and margins missed targets. Pushed for two new independent directors and a path to 40%+ FCF margins.",
+   hist:"Settled within 4 months — two new directors added. Stock underperformed post-settlement due to software sector weakness and AI disruption concerns."},
+  {id:3,date:"Oct 2024",target:"Salesforce",ticker:"CRM",fund:"Starboard",demand:"Margin expansion, divest non-core M&A (Slack, Tableau)",status:"Settled",stage:4,ann:300,now:268,
+   thesis:"Joined Elliott and ValueAct in pressuring Salesforce to cut costs from its acquisition spree and improve margins that lagged pure-play SaaS peers.",
+   hist:"Multi-activist pile-on is historically very effective. Salesforce improved margins significantly. Stock weakness reflects macro and AI pressures, not activist failure."},
+  {id:4,date:"Nov 2024",target:"Southwest Airlines",ticker:"LUV",fund:"Elliott",demand:"CEO ouster, board overhaul, end open seating policy",status:"Won",stage:5,ann:27,now:42.97,
+   thesis:"Elliott took ~$2B stake (11%) and ran a full proxy campaign demanding CEO removal. Included detailed operational blueprint and multiple public letters to the board.",
+   hist:"Elliott's most aggressive U.S. airline play. Got 5 board seats — most in any single U.S. settlement. Jordan kept his job as concession. Stock up 59%."},
+  {id:5,date:"Nov 2024",target:"Anglo American",ticker:"AAL.L",fund:"Elliott",demand:"Strategic review during BHP unsolicited takeover bid",status:"Ongoing",stage:2,ann:25.80,now:24.10,
+   thesis:"Elliott entered during Anglo's defense against BHP's unsolicited takeover. Believed management's restructuring plan too slow; value could be unlocked faster.",
+   hist:"International campaigns are harder for Elliott. UK governance norms differ. Slow-moving — expect resolution in 2026 proxy season."},
+  {id:6,date:"Dec 2024",target:"Honeywell",ticker:"HON",fund:"Elliott",demand:"Break up conglomerate — spin off aerospace division",status:"Settled",stage:4,ann:207,now:233,
+   thesis:"Elliott argued conglomerate structure destroyed value. Aerospace worth more standalone; automation had different growth dynamics. Classic sum-of-parts thesis.",
+   hist:"Honeywell announced aerospace spin-off and began selling non-core units. Stock up 13%. Textbook Elliott industrials playbook."},
+  {id:7,date:"Jan 2025",target:"Peloton",ticker:"PTON",fund:"Greenlight",demand:"Explore strategic alternatives including full company sale",status:"Ongoing",stage:2,ann:4.20,now:5.80,
+   thesis:"Greenlight argued Peloton's brand and hardware are worth far more to a strategic acquirer — Nike, Apple, or PE — than as a standalone struggling growth company.",
+   hist:"Greenlight is value-oriented, not confrontational. Outcome depends on whether a buyer emerges. Apple and Nike have been rumored. High binary risk."},
+  {id:8,date:"Jan 2025",target:"US Steel",ticker:"X",fund:"Ancora",demand:"Replace CEO, oppose Nippon Steel acquisition",status:"Ongoing",stage:2,ann:38,now:31.50,
+   thesis:"Ancora launched 9-candidate proxy campaign opposing the $14.9B Nippon Steel deal and CEO Burritt, arguing the deal undervalued the company.",
+   hist:"Ancora's most aggressive campaign. Complex given Trump opposition to Nippon deal. Stock has drifted down on deal uncertainty."},
+  {id:9,date:"Jan 2025",target:"Air Products",ticker:"APD",fund:"Mantle Ridge",demand:"CEO removal, exit hydrogen megaprojects, refocus core",status:"Won",stage:5,ann:289,now:255,
+   thesis:"Mantle Ridge argued CEO Ghasemi overcommitted to capital-intensive green hydrogen that destroyed value. Wanted return to core industrial gas business.",
+   hist:"Won 3 of 4 board seats. CEO voted off the board — one of 2025's most decisive wins. Stock down due to hydrogen project write-downs and transition uncertainty."},
+  {id:10,date:"Feb 2025",target:"BP",ticker:"BP",fund:"Elliott",demand:"Accelerate asset sales, boost buybacks, cut renewables spend",status:"Ongoing",stage:3,ann:36.50,now:31.20,
+   thesis:"Elliott took multi-billion stake arguing BP overcorrected on green energy at expense of shareholder returns. Demanded faster pivot back to oil and gas.",
+   hist:"Elliott deployed $3.5B+ — one of their largest European positions. BP has accelerated divestitures. Resolution likely via operational concessions."},
+  {id:11,date:"Feb 2025",target:"Phillips 66",ticker:"PSX",fund:"Elliott",demand:"Sell DCP midstream assets, 4 board seats, operational review",status:"Settled",stage:4,ann:140,now:175,
+   thesis:"Elliott argued midstream assets were hidden value not being priced into a refining conglomerate. Had been in PSX for over a year before escalation.",
+   hist:"Secured 2 of 4 board seats. Midstream asset sale underway. Stock up 25% from announcement — one of the cleaner Elliott wins in energy."},
+  {id:12,date:"Mar 2025",target:"PepsiCo",ticker:"PEP",fund:"Elliott",demand:"Operational review, margin improvement vs Coca-Cola",status:"Ongoing",stage:2,ann:145,now:157,
+   thesis:"Elliott built a 'sizable' stake arguing PepsiCo margins have lagged Coca-Cola for years. Snacks business may deserve separate strategic review.",
+   hist:"Very early stage. Elliott moves slowly on mega-cap consumer names — could take 12–18 months. No confrontational moves yet."},
+  {id:13,date:"Mar 2025",target:"Kenvue",ticker:"KVUE",fund:"Starboard",demand:"Board refresh, strategic review of J&J spin-off value",status:"Settled",stage:5,ann:21.50,now:17.35,
+   thesis:"Starboard argued Kenvue was undervalued post J&J spin due to bloated cost structure. Pushed for board refresh and formal strategic alternatives process.",
+   hist:"Starboard's pressure led directly to Kimberly-Clark's $49B acquisition. Appears down on paper but the M&A outcome is a major win. Deal closes H2 2026."},
+  {id:14,date:"Apr 2025",target:"Starbucks",ticker:"SBUX",fund:"Elliott",demand:"CEO transition oversight, accelerate operational turnaround",status:"Settled",stage:4,ann:83,now:96,
+   thesis:"Elliott played key role orchestrating Brian Niccol's arrival from Chipotle and stayed engaged post-hire to ensure turnaround plans were credible.",
+   hist:"More constructive than confrontational. Niccol appointment seen as a win. Stock up 16% since Elliott's April 2025 engagement escalated."}
+];
+
+const FI={
+  Elliott:{campaigns:"18 in 2025",settleRate:"72%",avgGain:"+18%",style:"High-conviction, large-cap. Deploys $1B+. Will proxy fight publicly."},
+  Starboard:{campaigns:"11 in 2025",settleRate:"85%",avgGain:"+12%",style:"Tech & healthcare focus. Prefers negotiated settlements. Peter Feld leads."},
+  "Mantle Ridge":{campaigns:"2 in 2025",settleRate:"60%",avgGain:"+8%",style:"CEO-replacement specialist. Long-term hold. Paul Hilal is deeply operational."},
+  Ancora:{campaigns:"4 in 2025",settleRate:"50%",avgGain:"+5%",style:"Mid-cap focus. Confrontational. Will proxy fight. Industrials & materials."},
+  Greenlight:{campaigns:"3 in 2025",settleRate:"65%",avgGain:"+14%",style:"Value-oriented. Patient. David Einhorn. Less confrontational."}
+};
+
+const STAGES=["Stake disclosed","Demands made","Engagement","Settlement/Vote","Resolved"];
+let wlF={fund:null,status:null},xid=null;
+
+const fce=document.getElementById('fundChips');
+Object.keys(FI).forEach(f=>{
+  const c=document.createElement('span');
+  c.className='chip';c.dataset.t='f';c.dataset.v=f;c.textContent=f;
+  c.onclick=()=>toggleChip(c);
+  fce.appendChild(c);
+});
+
+function toggleChip(el){
+  const t=el.dataset.t,v=el.dataset.v;
+  if(t==='f'){
+    if(wlF.fund===v){wlF.fund=null;el.classList.remove('on');hideI();}
+    else{document.querySelectorAll('[data-t=f]').forEach(c=>c.classList.remove('on'));wlF.fund=v;el.classList.add('on');showI(v);}
+  }else{
+    if(wlF.status===v){wlF.status=null;el.classList.remove('on');}
+    else{document.querySelectorAll('[data-t=s]').forEach(c=>c.classList.remove('on'));wlF.status=v;el.classList.add('on');}
+  }
+  renderWL();
+}
+function clearAll(){wlF={fund:null,status:null};document.querySelectorAll('.chip[data-t]').forEach(c=>c.classList.remove('on'));hideI();renderWL();}
+function showI(f){
+  const fi=FI[f];if(!fi)return;
+  const p=document.getElementById('intelPanel');
+  p.innerHTML=`<div class="ititle">// ${f.toUpperCase()} — FUND INTELLIGENCE</div>
+  <div class="igrid">
+    <div><div class="il">2025 Campaigns</div><div class="iv">${fi.campaigns}</div></div>
+    <div><div class="il">Settle Rate</div><div class="iv">${fi.settleRate}</div></div>
+    <div><div class="il">Avg stock gain</div><div class="iv" style="color:var(--green)">${fi.avgGain}</div></div>
+    <div><div class="il">Style</div><div class="iv" style="font-size:11px;color:var(--muted);line-height:1.5">${fi.style}</div></div>
+  </div>`;
+  p.classList.add('show');
+}
+function hideI(){document.getElementById('intelPanel').classList.remove('show');}
+
+function perf(a,n){return((n-a)/a*100);}
+function ph(p){const s=(p>=0?'+':'')+p.toFixed(1)+'%';return p>=2?`<span class="pup">${s}</span>`:p<=-2?`<span class="pdn">${s}</span>`:`<span class="pfl">${s}</span>`;}
+function sh(stage,status){
+  const dots=STAGES.map((_,i)=>{
+    let c='dot';
+    if(status==='Won'||status==='Settled')c+=' done';
+    else if(i<stage-1)c+=' done';
+    else if(i===stage-1)c+=' cur';
+    return`<div class="${c}" title="${STAGES[i]}"></div>`;
+  }).join('');
+  return`<div class="sdots">${dots}</div><div class="slbl">${STAGES[Math.min(stage-1,4)]}</div>`;
+}
+
+function renderWL(){
+  const rows=C.filter(c=>{
+    if(wlF.fund&&c.fund!==wlF.fund)return false;
+    if(wlF.status&&c.status!==wlF.status)return false;
+    return true;
+  });
+  const avgP=rows.length?rows.reduce((s,c)=>s+perf(c.ann,c.now),0)/rows.length:0;
+  const wins=rows.filter(c=>perf(c.ann,c.now)>0).length;
+  const ong=rows.filter(c=>c.status==='Ongoing').length;
+  document.getElementById('statsBar').innerHTML=`
+    <div class="stat"><div class="slabel">Campaigns</div><div class="sval">${rows.length}</div><div class="ssub">Oct 2024 – Apr 2025</div></div>
+    <div class="stat"><div class="slabel">Ongoing</div><div class="sval" style="color:var(--amber)">${ong}</div><div class="ssub">Unresolved pressure</div></div>
+    <div class="stat"><div class="slabel">Avg return</div><div class="sval" style="color:${avgP>=0?'var(--green)':'var(--red)'}">${avgP>=0?'+':''}${avgP.toFixed(1)}%</div><div class="ssub">Since announcement</div></div>
+    <div class="stat"><div class="slabel">Positive</div><div class="sval" style="color:var(--green)">${wins}/${rows.length}</div><div class="ssub">Stocks up from filing</div></div>`;
+  const tb=document.getElementById('wlBody'),em=document.getElementById('wlEmpty');
+  if(!rows.length){tb.innerHTML='';em.style.display='block';return;}
+  em.style.display='none';
+  tb.innerHTML=rows.map(c=>{
+    const p=perf(c.ann,c.now),ix=xid===c.id;
+    const fk=c.fund.replace(/\s/g,'');
+    return`<tr onclick="toggleX(${c.id})" class="${ix?'xrow':''}">
+      <td><div class="tt">${c.ticker}</div><div class="tn">${c.target}</div></td>
+      <td><span class="fp fp-${fk}">${c.fund}</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">${c.date}</td>
+      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">${c.demand}</td>
+      <td>${sh(c.stage,c.status)}</td>
+      <td><span class="sp sp-${c.status}">${c.status}</span></td>
+      <td class="mn">$${c.ann.toLocaleString()}</td>
+      <td class="mn">$${c.now.toLocaleString()}</td>
+      <td>${ph(p)}</td>
+    </tr>
+    ${ix?`<tr><td colspan="9" style="padding:0"><div class="expwrap">
+      <div class="expgrid">
+        <div><div class="explbl">Activist thesis</div><div class="exptxt">${c.thesis}</div></div>
+        <div><div class="explbl">Fund pattern on this campaign type</div><div class="exptxt">${c.hist}</div></div>
+      </div></div></td></tr>`:''}`;
+  }).join('');
+}
+function toggleX(id){xid=xid===id?null:id;renderWL();}
+
+// ═══ EDGAR FEED ════════════════════════════════════════════════════
+// Data is fetched by GitHub Actions daily and stored in filings.json
+// The HTML just reads that file — no EDGAR calls from the browser
+
+let allFilings=[];
+let feedPage=0;
+const FEED_PG=40;
+
+async function loadFilings(){
+  const loading=document.getElementById('floading');
+  const ferrbox=document.getElementById('ferrbox');
+
+  try{
+    // filings.json lives in the same repo — same origin, no CORS issue
+    const r=await fetch('./filings.json?nocache='+Date.now());
+
+    if(!r.ok) throw new Error('filings.json not found');
+
+    const data=await r.json();
+    allFilings=data.filings||[];
+
+    // Show last updated time in header
+    document.getElementById('updatedAt').textContent=`Updated ${data.fetched_at||'recently'}`;
+    document.getElementById('feedBadge').textContent=allFilings.length;
+
+    loading.style.display='none';
+    renderFeed();
+
+  }catch(e){
+    loading.style.display='none';
+    ferrbox.style.display='block';
+    ferrbox.innerHTML=`
+      <strong>Filings not yet generated.</strong><br><br>
+      The GitHub Action hasn't run yet. To trigger it manually:<br><br>
+      1. Go to your GitHub repo<br>
+      2. Click the <strong>Actions</strong> tab<br>
+      3. Click <strong>Fetch EDGAR Filings</strong> in the left sidebar<br>
+      4. Click <strong>Run workflow</strong> → <strong>Run workflow</strong><br>
+      5. Wait ~30 seconds, then refresh this page<br><br>
+      After that it runs automatically every weekday morning.
+    `;
+  }
+}
+
+function formTag(ft){
+  if(ft==='SC 13D')  return`<span class="ftag ft13D">SC 13D</span>`;
+  if(ft==='SC 13D/A')return`<span class="ftag ft13DA">SC 13D/A</span>`;
+  if(ft==='DFAN14A') return`<span class="ftag ftDFAN">DFAN14A</span>`;
+  return`<span class="ftag ft13DA">${ft||'—'}</span>`;
+}
+
+function renderFeed(){
+  const search=(document.getElementById('searchInput').value||'').toLowerCase();
+  const formF=document.getElementById('formFilter').value;
+  const ftable=document.getElementById('ftable');
+  const fempty=document.getElementById('fempty');
+  const pgrow=document.getElementById('pgrow');
+
+  let filtered=allFilings.filter(f=>{
+    if(formF&&f.form_type!==formF)return false;
+    if(search){
+      const hay=(f.entity_name+' '+(f.filer_names||[]).join(' ')).toLowerCase();
+      if(!hay.includes(search))return false;
+    }
+    return true;
+  });
+
+  if(!filtered.length){
+    ftable.style.display='none';
+    fempty.style.display='block';
+    pgrow.style.display='none';
+    return;
+  }
+  fempty.style.display='none';
+
+  const start=feedPage*FEED_PG;
+  const slice=filtered.slice(start,start+FEED_PG);
+  const totalPages=Math.ceil(filtered.length/FEED_PG);
+
+  document.getElementById('fbody').innerHTML=slice.map(f=>{
+    const fd=f.file_date
+      ?new Date(f.file_date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})
+      :'—';
+    const filers=(f.filer_names||[]).join(', ')||'—';
+    return`<tr>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">${fd}</td>
+      <td>${formTag(f.form_type)}</td>
+      <td style="font-weight:500;font-size:13px">${f.entity_name||'—'}</td>
+      <td style="font-size:12px;color:var(--muted)">${filers}</td>
+      <td><a class="elink" href="${f.filing_url||'#'}" target="_blank" rel="noopener">↗ View filing</a></td>
+    </tr>`;
+  }).join('');
+
+  ftable.style.display='table';
+
+  if(totalPages<=1){pgrow.style.display='none';return;}
+  pgrow.style.display='flex';
+  pgrow.innerHTML=`
+    <button class="pgbtn" ${feedPage===0?'disabled':''} onclick="goPage(${feedPage-1})">← Prev</button>
+    <span class="pginfo">Page ${feedPage+1} of ${totalPages} · ${filtered.length} filings</span>
+    <button class="pgbtn" ${feedPage>=totalPages-1?'disabled':''} onclick="goPage(${feedPage+1})">Next →</button>`;
+}
+
+function goPage(p){feedPage=p;renderFeed();window.scrollTo(0,0);}
+
+// ═══ SHARED ════════════════════════════════════════════════════════
+function switchTab(n){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+n).classList.add('active');
+  document.getElementById('content-'+n).classList.add('active');
+}
+
+function tick(){
+  const n=new Date();
+  document.getElementById('clock').textContent=
+    n.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()+' · '+
+    n.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+}
+setInterval(tick,1000);tick();
+renderWL();
+loadFilings();
+</script>
+
+
+</body></html>
