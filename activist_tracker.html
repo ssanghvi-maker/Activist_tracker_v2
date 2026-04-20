@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)file:///C:/Users/ssang/Downloads/activist_tracker_11.html -->
+<!-- saved from url=(0057)file:///C:/Users/ssang/Downloads/activist_tracker_12.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -156,7 +156,7 @@ tbody td{padding:11px 10px;vertical-align:middle;}
   </div>
   <div class="hdr-right">
     <span class="updated" id="updatedAt">Loading filings...</span>
-    <span class="clock" id="clock">APR 20, 2026 · 03:55:25 PM</span>
+    <span class="clock" id="clock">APR 20, 2026 · 04:01:57 PM</span>
   </div>
 </div>
 
@@ -721,7 +721,8 @@ Then respond ONLY with a JSON object (no markdown, no explanation):
       headers:{
         'Content-Type':'application/json',
         'anthropic-version':'2023-06-01',
-        'anthropic-dangerous-direct-browser-access':'true'
+        'anthropic-dangerous-direct-browser-access':'true',
+        'x-api-key':'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'
       },
       body:JSON.stringify({
         model:'claude-sonnet-4-20250514',
@@ -773,12 +774,4 @@ function tick(){
   const n=new Date();
   document.getElementById('clock').textContent=
     n.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}).toUpperCase()+' · '+
-    n.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
-}
-setInterval(tick,1000);tick();
-renderWL();
-loadFilings();
-</script>
-
-
-</body></html>
+    n.toLocaleTimeString('en-US',{hour:'
