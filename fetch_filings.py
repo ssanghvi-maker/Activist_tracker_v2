@@ -1,90 +1,106 @@
 """
 fetch_filings.py
-Runs inside GitHub Actions every morning.
-Fetches the last 30 days of activist filings from SEC EDGAR
-and saves them to filings.json for the HTML page to read.
+Fetches activist filings from SEC EDGAR using their official RSS feeds.
+Runs inside GitHub Actions every weekday morning.
+Saves results to filings.json for the HTML page to read.
 """
 
 import requests
 import json
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
+import time
 
-# SEC requires a descriptive User-Agent — this is their published policy
+# SEC requires a descriptive User-Agent
 HEADERS = {
-    "User-Agent": "ActivistTracker/1.0 research tool github.com/ssanghvi-maker/activist-tracker"
+    "User-Agent": "ActivistTracker/1.0 research tool contact@example.com",
+    "Accept-Encoding": "gzip, deflate",
 }
 
-EDGAR_URL = "https://efts.sec.gov/LATEST/search-index"
+# EDGAR RSS feed — returns most recent filings by form type
+EDGAR_RSS = "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type={form_type}&dateb=&owner=include&count=100&search_text=&output=atom"
 
-# Filing types to track
-# SC 13D   = new activist stake (>5% with intent to influence)
-# SC 13D/A = amendment — demand letters, updated stakes, escalations
-# DFAN14A  = proxy solicitation — board letters, public campaigns
-FORMS = "SC 13D,SC 13D/A,DFAN14A"
+FORM_TYPES = ["SC 13D", "SC 13D/A", "DFAN14A"]
 
-def fetch_filings():
-    today = datetime.today()
-    thirty_days_ago = today - timedelta(days=30)
+ATOM_NS = "http://www.w3.org/2005/Atom"
 
+
+def fetch_rss(form_type):
+    url = EDGAR_RSS.format(form_type=requests.utils.quote(form_type))
+    print(f"  Fetching {form_type} from: {url}")
+    try:
+        r = requests.get(url, headers=HEADERS, timeout=30)
+        r.raise_for_status()
+        print(f"  HTTP {r.status_code}, content length: {len(r.text)}")
+        return r.text
+    except Exception as e:
+        print(f"  Error: {e}")
+        return None
+
+
+def parse_rss(xml_text, form_type, date_from, date_to):
+    if not xml_text:
+        return []
+
+    filings = []
+
+    try:
+        root = ET.fromstring(xml_text)
+    except ET.ParseError as e:
+        print(f"  XML parse error: {e}")
+        print(f"  First 500 chars: {xml_text[:500]}")
+        return []
+
+    entries = root.findall(f"{{{ATOM_NS}}}entry")
+    print(f"  Total entries in feed: {len(entries)}")
+
+    for entry in entries:
+        title   = entry.findtext(f"{{{ATOM_NS}}}title", "").strip()
+        updated = entry.findtext(f"{{{ATOM_NS}}}updated", "").strip()
+        link_el = entry.find(f"{{{ATOM_NS}}}link")
+        link    = link_el.get("href", "") if link_el is not None else ""
+
+        file_date = updated[:10] if updated else ""
+
+        if file_date < date_from or file_date > date_to:
+            continue
+
+        # Title format: "SC 13D - COMPANY NAME (CIK) (ACCESSION)"
+        company_name = title
+        if " - " in title:
+            company_name = title.split(" - ", 1)[1]
+            if "(" in company_name:
+                company_name = company_name[:company_name.rfind("(")].strip()
+
+        filings.append({
+            "file_date":   file_date,
+            "form_type":   form_type,
+            "entity_name": company_name,
+            "filer_names": [],
+            "filing_url":  link,
+        })
+
+    return filings
+
+
+def fetch_all_filings():
+    today     = datetime.today()
     date_to   = today.strftime("%Y-%m-%d")
-    date_from = thirty_days_ago.strftime("%Y-%m-%d")
+    date_from = (today - timedelta(days=30)).strftime("%Y-%m-%d")
+
+    print(f"Fetching activist filings: {date_from} to {date_to}")
 
     all_filings = []
-    page = 0
-    page_size = 40
 
-    print(f"Fetching filings from {date_from} to {date_to}...")
+    for form_type in FORM_TYPES:
+        xml_text = fetch_rss(form_type)
+        filings  = parse_rss(xml_text, form_type, date_from, date_to)
+        print(f"  {len(filings)} {form_type} filings in range")
+        all_filings.extend(filings)
+        time.sleep(0.5)
 
-    while True:
-        params = {
-            "q": "",
-            "forms": FORMS,
-            "dateRange": "custom",
-            "startdt": date_from,
-            "enddt": date_to,
-            "from": page * page_size,
-        }
+    all_filings.sort(key=lambda x: x["file_date"], reverse=True)
 
-        try:
-            resp = requests.get(EDGAR_URL, params=params, headers=HEADERS, timeout=30)
-            resp.raise_for_status()
-            data = resp.json()
-        except Exception as e:
-            print(f"Error fetching page {page}: {e}")
-            break
-
-        hits = data.get("hits", {}).get("hits", [])
-        total = data.get("hits", {}).get("total", {}).get("value", 0)
-
-        if not hits:
-            break
-
-        for h in hits:
-            s = h.get("_source", {})
-            accession_no = s.get("accession_no", "")
-            display_names = s.get("display_names", [])
-
-            all_filings.append({
-                "file_date":     s.get("file_date", ""),
-                "form_type":     s.get("form_type", ""),
-                "entity_name":   s.get("entity_name", ""),
-                "filer_names":   [d.get("name", "") for d in display_names],
-                "accession_no":  accession_no,
-                "filing_url":    build_filing_url(accession_no, display_names),
-            })
-
-        print(f"  Page {page+1}: got {len(hits)} filings (total: {total})")
-
-        # Stop if we have all results
-        if (page + 1) * page_size >= total:
-            break
-
-        # SEC rate limit — be polite
-        import time
-        time.sleep(0.2)
-        page += 1
-
-    # Save to filings.json
     output = {
         "fetched_at": today.strftime("%Y-%m-%d %H:%M UTC"),
         "date_from":  date_from,
@@ -96,20 +112,8 @@ def fetch_filings():
     with open("filings.json", "w") as f:
         json.dump(output, f, indent=2)
 
-    print(f"\nDone. Saved {len(all_filings)} filings to filings.json.")
-
-
-def build_filing_url(accession_no, display_names):
-    """Build direct link to filing index page on EDGAR."""
-    try:
-        cik = display_names[0].get("id", "").lstrip("0")
-        acc_nodash = accession_no.replace("-", "")
-        if cik and acc_nodash:
-            return f"https://www.sec.gov/Archives/edgar/data/{cik}/{acc_nodash}/{accession_no}-index.htm"
-    except Exception:
-        pass
-    return "https://www.sec.gov/cgi-bin/browse-edgar?action=getcurrent&type=SC+13D&dateb=&owner=include&count=40"
+    print(f"\nDone. {len(all_filings)} filings saved to filings.json.")
 
 
 if __name__ == "__main__":
-    fetch_filings()
+    fetch_all_filings()
