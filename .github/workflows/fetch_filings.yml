@@ -2,8 +2,8 @@ name: Fetch EDGAR Filings
 
 on:
   schedule:
-    - cron: '0 12 * * 1-5'  # 7am ET Mon-Fri (12pm UTC)
-  workflow_dispatch:          # allows manual trigger from GitHub UI
+    - cron: '0 12 * * 1-5'  # 7am ET Mon-Fri
+  workflow_dispatch:          # manual trigger from GitHub UI
 
 jobs:
   fetch:
@@ -20,7 +20,9 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
-      - name: Fetch filings from EDGAR
+      - name: Fetch filings and generate briefs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python fetch_filings.py
 
       - name: Commit and push filings.json
