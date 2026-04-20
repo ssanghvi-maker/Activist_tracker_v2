@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)file:///C:/Users/ssang/Downloads/activist_tracker_10.html -->
+<!-- saved from url=(0057)file:///C:/Users/ssang/Downloads/activist_tracker_11.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,6 +133,18 @@ tbody td{padding:11px 10px;vertical-align:middle;}
 .pgbtn:hover:not(:disabled){border-color:var(--amber);color:var(--amber);}
 .pgbtn:disabled{opacity:.3;cursor:not-allowed;}
 .pginfo{font-family:var(--mono);font-size:11px;color:var(--muted);}
+
+.brief-btn{font-family:var(--mono);font-size:10px;padding:3px 10px;border:1px solid var(--amber);background:transparent;color:var(--amber);cursor:pointer;border-radius:2px;transition:all .15s;white-space:nowrap;}
+.brief-btn:hover{background:var(--amber-dim);}
+.brief-btn:disabled{opacity:.4;cursor:not-allowed;}
+.brief-row td{padding:0!important;}
+.brief-wrap{padding:14px 18px;background:var(--bg2);border-top:1px solid var(--border);}
+.brief-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:12px;}
+.brief-field{display:flex;flex-direction:column;gap:3px;}
+.brief-lbl{font-size:9px;color:var(--muted);letter-spacing:.09em;text-transform:uppercase;}
+.brief-val{font-size:12px;color:var(--text);line-height:1.5;}
+.brief-full{font-size:12px;color:var(--text);line-height:1.75;margin-top:4px;}
+.brief-loading{font-family:var(--mono);font-size:11px;color:var(--muted);font-style:italic;animation:blink 1.5s infinite;}
 </style>
 </head>
 <body>
@@ -144,7 +156,7 @@ tbody td{padding:11px 10px;vertical-align:middle;}
   </div>
   <div class="hdr-right">
     <span class="updated" id="updatedAt">Loading filings...</span>
-    <span class="clock" id="clock">APR 20, 2026 · 03:46:19 PM</span>
+    <span class="clock" id="clock">APR 20, 2026 · 03:55:25 PM</span>
   </div>
 </div>
 
@@ -383,7 +395,7 @@ tbody td{padding:11px 10px;vertical-align:middle;}
 
     <table class="ftable" id="ftable" style="display:none">
       <thead><tr>
-        <th>Filed</th><th>Type</th><th>Subject company</th><th>Filer (activist)</th><th style="width:140px">Document</th>
+        <th>Filed</th><th>Type</th><th>Subject company</th><th>Filer (activist)</th><th style="width:200px">Actions</th>
       </tr></thead>
       <tbody id="fbody"></tbody>
     </table>
@@ -589,6 +601,8 @@ function formTag(ft){
   return`<span class="ftag ft13DA">${ft||'—'}</span>`;
 }
 
+let expandedBrief=null;
+
 function renderFeed(){
   const search=(document.getElementById('searchInput').value||'').toLowerCase();
   const formF=document.getElementById('formFilter').value;
@@ -617,18 +631,24 @@ function renderFeed(){
   const slice=filtered.slice(start,start+FEED_PG);
   const totalPages=Math.ceil(filtered.length/FEED_PG);
 
-  document.getElementById('fbody').innerHTML=slice.map(f=>{
+  document.getElementById('fbody').innerHTML=slice.map((f,i)=>{
+    const idx=start+i;
     const fd=f.file_date
       ?new Date(f.file_date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})
       :'—';
     const filers=(f.filer_names||[]).join(', ')||'—';
-    return`<tr>
+    const isExp=expandedBrief===idx;
+    return`<tr class="${isExp?'xrow':''}">
       <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">${fd}</td>
       <td>${formTag(f.form_type)}</td>
       <td style="font-weight:500;font-size:13px">${f.entity_name||'—'}</td>
       <td style="font-size:12px;color:var(--muted)">${filers}</td>
-      <td><a class="elink" href="${f.filing_url||'#'}" target="_blank" rel="noopener">↗ View filing</a></td>
-    </tr>`;
+      <td style="display:flex;gap:6px;align-items:center">
+        <a class="elink" href="${f.filing_url||'#'}" target="_blank" rel="noopener">↗ Filing</a>
+        <button class="brief-btn" id="bbtn-${idx}" onclick="runBrief(${idx})">✦ Brief</button>
+      </td>
+    </tr>
+    ${isExp?`<tr class="brief-row"><td colspan="5"><div class="brief-wrap" id="brief-${idx}"></div></td></tr>`:''}`;
   }).join('');
 
   ftable.style.display='table';
@@ -642,6 +662,104 @@ function renderFeed(){
 }
 
 function goPage(p){feedPage=p;renderFeed();window.scrollTo(0,0);}
+
+async function runBrief(idx){
+  // Toggle — click again to close
+  if(expandedBrief===idx){expandedBrief=null;renderFeed();return;}
+  expandedBrief=idx;
+  renderFeed();
+
+  const wrap=document.getElementById('brief-'+idx);
+  if(!wrap)return;
+
+  const search=(document.getElementById('searchInput').value||'').toLowerCase();
+  const formF=document.getElementById('formFilter').value;
+  const filtered=allFilings.filter(f=>{
+    if(formF&&f.form_type!==formF)return false;
+    if(search){const hay=(f.entity_name+' '+(f.filer_names||[]).join(' ')).toLowerCase();if(!hay.includes(search))return false;}
+    return true;
+  });
+
+  const f=filtered[idx];
+  if(!f){wrap.innerHTML='<div class="brief-loading">No filing data.</div>';return;}
+
+  const btn=document.getElementById('bbtn-'+idx);
+  if(btn){btn.disabled=true;btn.textContent='Loading...';}
+  wrap.innerHTML='<div class="brief-loading">Reading filing and researching company...</div>';
+
+  const prompt=`You are a special situations research analyst. A new activist filing has appeared on SEC EDGAR.
+
+Filing details:
+- Form type: ${f.form_type}
+- Filed: ${f.file_date}
+- Name on filing: ${f.entity_name}
+- Filer: ${(f.filer_names||[]).join(', ')||'unknown'}
+- Filing URL: ${f.filing_url||'not available'}
+
+Your job: figure out exactly what this filing is about and produce a structured brief.
+
+Use web search to:
+1. Look up this specific filing to find: who is the activist, what company are they targeting, what stake size, what are they demanding
+2. If the filer name is a person (like "Wilson Dennis J"), search for them to find which activist fund they represent and what company they are targeting
+3. Search for recent news about this activist situation
+
+Then respond ONLY with a JSON object (no markdown, no explanation):
+{
+  "activist": "Name of the activist fund or investor",
+  "target_company": "Name of the company being targeted",
+  "target_ticker": "Stock ticker if public",
+  "stake_size": "Percentage or dollar amount of stake",
+  "demand": "What the activist is demanding in one sentence",
+  "rationale": "Why they are targeting this company in one sentence",
+  "watch_for": "What to watch for as the next catalyst",
+  "confidence": "high / medium / low based on how much info you found"
+}`;
+
+  try{
+    const resp=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+        'anthropic-version':'2023-06-01',
+        'anthropic-dangerous-direct-browser-access':'true'
+      },
+      body:JSON.stringify({
+        model:'claude-sonnet-4-20250514',
+        max_tokens:1000,
+        tools:[{type:'web_search_20250305',name:'web_search'}],
+        messages:[{role:'user',content:prompt}]
+      })
+    });
+
+    if(!resp.ok)throw new Error('API error '+resp.status);
+    const data=await resp.json();
+
+    const text=data.content.filter(b=>b.type==='text').map(b=>b.text).join('');
+    const match=text.match(/\{[\s\S]*\}/);
+    if(!match)throw new Error('No structured data returned');
+
+    const brief=JSON.parse(match[0]);
+
+    const confColor=brief.confidence==='high'?'var(--green)':brief.confidence==='low'?'var(--red)':'var(--amber)';
+
+    wrap.innerHTML=`
+      <div class="brief-grid">
+        <div class="brief-field"><div class="brief-lbl">Activist</div><div class="brief-val">${brief.activist||'—'}</div></div>
+        <div class="brief-field"><div class="brief-lbl">Target company</div><div class="brief-val">${brief.target_company||'—'} ${brief.target_ticker?'<span style="font-family:var(--mono);color:var(--amber);font-size:11px">'+brief.target_ticker+'</span>':''}</div></div>
+        <div class="brief-field"><div class="brief-lbl">Stake size</div><div class="brief-val">${brief.stake_size||'—'}</div></div>
+        <div class="brief-field"><div class="brief-lbl">Confidence</div><div class="brief-val" style="color:${confColor}">${brief.confidence||'—'}</div></div>
+      </div>
+      <div class="brief-field" style="margin-bottom:10px"><div class="brief-lbl">Demand</div><div class="brief-full">${brief.demand||'—'}</div></div>
+      <div class="brief-field" style="margin-bottom:10px"><div class="brief-lbl">Rationale</div><div class="brief-full">${brief.rationale||'—'}</div></div>
+      <div class="brief-field"><div class="brief-lbl">Watch for</div><div class="brief-full">${brief.watch_for||'—'}</div></div>
+    `;
+
+  }catch(e){
+    wrap.innerHTML='<div style="color:var(--red);font-size:12px">Could not generate brief: '+e.message+'</div>';
+  }
+
+  if(btn){btn.disabled=false;btn.textContent='✦ Brief';}
+}
 
 // ═══ SHARED ════════════════════════════════════════════════════════
 function switchTab(n){
