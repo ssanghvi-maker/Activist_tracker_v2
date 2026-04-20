@@ -1,5 +1,5 @@
 {
-  "fetched_at": "2026-04-20 23:20 UTC",
+  "fetched_at": "2026-04-20 23:30 UTC",
   "date_from": "2026-03-21",
   "date_to": "2026-04-20",
   "total": 10,
@@ -15,9 +15,9 @@
         "target_company": "WEX Inc.",
         "target_ticker": "WEX",
         "stake_size": "4.9%",
-        "demand": "Seeking to elect three board nominees (Kurt Adams, Ellen Alemany, Lauren Taylor Wolfe) to address prolonged operational underperformance and poor capital allocation",
-        "rationale": "Targeting WEX due to years of sustained underperformance, value-destructive M&A, and poor corporate governance that has led to severe market undervaluation",
-        "watch_for": "WEX's 2026 annual meeting of stockholders scheduled for May 5, 2026",
+        "demand": "Replace three board directors including CEO Melissa Smith as board chair to improve governance and hold management accountable for underperformance",
+        "rationale": "WEX has significantly underperformed peers like Corpay with operating margins trailing by 18+ points and total shareholder returns lagging by 81% over three years",
+        "watch_for": "WEX's annual shareholder meeting on May 5, 2026 where the proxy contest will be decided",
         "confidence": "high"
       }
     },
@@ -32,9 +32,9 @@
         "target_company": "WEX Inc.",
         "target_ticker": "WEX",
         "stake_size": "4.9%",
-        "demand": "Replace current management through the election of three director nominees to WEX's board at the 2026 annual meeting.",
-        "rationale": "Years of sustained underperformance, value-destructive M&A, and poor corporate governance with WEX significantly trailing peer Corpay and the S&P MidCap 400.",
-        "watch_for": "WEX's 2026 annual meeting scheduled for May 5, 2026, and potential regulatory approval challenges from FDIC and Utah Department of Financial Institutions.",
+        "demand": "Board representation by electing three nominated directors to replace current directors to improve accountability and strategic oversight",
+        "rationale": "Years of sustained underperformance with stock price decline, operating margins 18+ points below peer Corpay, and poor capital allocation decisions",
+        "watch_for": "May 5, 2026 annual meeting vote results and whether Impactive's nominees are elected to the board",
         "confidence": "high"
       }
     },
@@ -44,7 +44,16 @@
       "entity_name": "SUMMER ROAD LLC (0001604873)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1604873/000092189526001029/0000921895-26-001029-index.htm",
-      "brief": null
+      "brief": {
+        "activist": "Summer Road LLC",
+        "target_company": "Ingles Markets, Incorporated",
+        "target_ticker": "IMKTA",
+        "stake_size": "~3% of Class A shares (433,678 shares)",
+        "demand": "Seeking to elect independent director nominee Rory A. Held to the board at the April 30, 2026 annual meeting",
+        "rationale": "Claims dual-class structure and lack of board accountability have led to lagging returns, poor capital allocation, deficient disclosure and outsized executive compensation",
+        "watch_for": "April 30, 2026 annual shareholder meeting vote results",
+        "confidence": "high"
+      }
     },
     {
       "file_date": "2026-04-20",
@@ -52,7 +61,16 @@
       "entity_name": "INGLES MARKETS INC (0000050493)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/50493/000092189526001029/0000921895-26-001029-index.htm",
-      "brief": null
+      "brief": {
+        "activist": "Summer Road LLC",
+        "target_company": "Ingles Markets, Incorporated",
+        "target_ticker": "IMKTA",
+        "stake_size": "3.0% of Class A common stock",
+        "demand": "Nominate independent director Rory A. Held to the Board to provide Class A shareholder representation and improve governance oversight",
+        "rationale": "Ingles Markets has dual-class share structure with lack of boardroom accountability leading to lagging shareholder returns, operational underperformance, poor capital allocation, deficient disclosure and transparency issues",
+        "watch_for": "Annual shareholder meeting on April 30, 2026 where proxy vote will determine if Summer Road's nominee gains board seat",
+        "confidence": "high"
+      }
     },
     {
       "file_date": "2026-04-17",
@@ -60,7 +78,16 @@
       "entity_name": "Saba Capital Management, L.P. (0001510281)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1510281/000090266426002055/0000902664-26-002055-index.htm",
-      "brief": null
+      "brief": {
+        "activist": "Saba Capital Management, L.P.",
+        "target_company": "BlackRock ESG Capital Allocation Term Trust",
+        "target_ticker": "ECAT",
+        "stake_size": "22.57%",
+        "demand": "Saba is seeking to elect eight nominees to the board of trustees to gain majority control and improve governance.",
+        "rationale": "The fund trades at a significant discount to net asset value and has underperformed peers due to poor governance and board entrenchment.",
+        "watch_for": "The 2026 annual shareholder meeting where Saba's eight board nominees will be voted on, potentially giving them majority control of the board",
+        "confidence": "high"
+      }
     },
     {
       "file_date": "2026-04-17",
@@ -76,7 +103,16 @@
       "entity_name": "SUMMER ROAD LLC (0001604873)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1604873/000092189526001011/0000921895-26-001011-index.htm",
-      "brief": null
+      "brief": {
+        "activist": "Summer Road LLC (Sackler family office)",
+        "target_company": "Ingles Markets, Incorporated",
+        "target_ticker": "IMKTA",
+        "stake_size": "~3% of Class A common stock",
+        "demand": "Elect independent nominee Rory Held to the board to provide Class A shareholder representation",
+        "rationale": "Alleges poor governance, stagnant Class A dividend, inadequate transparency, and underperforming capital allocation by the dual-class controlled company",
+        "watch_for": "April 30, 2026 annual shareholder meeting vote results and potential customer boycott concerns over Sackler family connections",
+        "confidence": "high"
+      }
     },
     {
       "file_date": "2026-04-17",
@@ -84,7 +120,16 @@
       "entity_name": "INGLES MARKETS INC (0000050493)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/50493/000092189526001011/0000921895-26-001011-index.htm",
-      "brief": null
+      "brief": {
+        "activist": "Summer Road LLC",
+        "target_company": "Ingles Markets, Incorporated",
+        "target_ticker": "IMKTA",
+        "stake_size": "~3% of Class A common stock",
+        "demand": "Seeking to elect independent nominee Rory A. Held to the Board to provide Class A shareholder representation",
+        "rationale": "Alleges poor governance, weak capital allocation, inadequate transparency, and failure to unlock real estate value in dual-class structure controlled by Ingle family",
+        "watch_for": "Outcome of April 30, 2026 annual meeting proxy vote",
+        "confidence": "high"
+      }
     },
     {
       "file_date": "2026-04-16",
@@ -92,7 +137,16 @@
       "entity_name": "Wilson Dennis J. (0001407029)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1407029/000119312526159308/0001193125-26-159308-index.htm",
-      "brief": null
+      "brief": {
+        "activist": "Wilson/House of Wilson entities (Dennis J. Wilson and affiliated investment entities)",
+        "target_company": "lululemon athletica inc.",
+        "target_ticker": "LULU",
+        "stake_size": "8.6% (9,904,856 shares)",
+        "demand": "Elect three independent director nominees and declassify the board to enable annual elections for all directors",
+        "rationale": "Targeting poor stock performance (65% decline over two years) and board governance failures including lack of CEO succession planning",
+        "watch_for": "2026 annual shareholder meeting proxy vote results and board response to governance proposals",
+        "confidence": "high"
+      }
     },
     {
       "file_date": "2026-04-16",
