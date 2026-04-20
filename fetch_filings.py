@@ -150,6 +150,39 @@ Then respond ONLY with a JSON object (no markdown, no explanation):
         print(f"  Brief generated for {filing['entity_name']} — {brief.get('activist','?')} targeting {brief.get('target_company','?')}")
         return brief
 
+    except requests.exceptions.HTTPError as e:
+        if e.response.status_code == 429:
+            print(f"  Rate limited — waiting 60s then retrying...")
+            time.sleep(60)
+            try:
+                resp = requests.post(
+                    ANTHROPIC_URL,
+                    headers={
+                        "Content-Type": "application/json",
+                        "anthropic-version": "2023-06-01",
+                        "x-api-key": ANTHROPIC_API_KEY,
+                    },
+                    json={
+                        "model": "claude-sonnet-4-20250514",
+                        "max_tokens": 1000,
+                        "tools": [{"type": "web_search_20250305", "name": "web_search"}],
+                        "messages": [{"role": "user", "content": prompt}],
+                    },
+                    timeout=60,
+                )
+                resp.raise_for_status()
+                data = resp.json()
+                text = "".join(b.get("text", "") for b in data.get("content", []) if b.get("type") == "text")
+                start = text.find("{")
+                end   = text.rfind("}") + 1
+                if start == -1 or end == 0:
+                    return None
+                return json.loads(text[start:end])
+            except Exception as e2:
+                print(f"  Retry failed: {e2}")
+                return None
+        print(f"  Brief error for {filing['entity_name']}: {e}")
+        return None
     except Exception as e:
         print(f"  Brief error for {filing['entity_name']}: {e}")
         return None
@@ -176,7 +209,7 @@ def fetch_all():
     for i, f in enumerate(all_filings):
         print(f"  [{i+1}/{len(all_filings)}] {f['entity_name']}")
         f["brief"] = generate_brief(f)
-        time.sleep(1)  # be polite to Anthropic API
+        time.sleep(15)  # wait 15s between calls to respect rate limits
 
     output = {
         "fetched_at": today.strftime("%Y-%m-%d %H:%M UTC"),
