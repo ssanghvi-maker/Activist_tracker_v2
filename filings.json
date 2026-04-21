@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-04-20 23:51 UTC",
-  "date_from": "2026-03-21",
-  "date_to": "2026-04-20",
+  "fetched_at": "2026-04-21 00:31 UTC",
+  "date_from": "2026-03-22",
+  "date_to": "2026-04-21",
   "total": 10,
   "filings": [
     {
@@ -10,16 +10,7 @@
       "entity_name": "Impactive Capital LP (0001786767)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1786767/000092189526001035/0000921895-26-001035-index.htm",
-      "brief": {
-        "activist": "Impactive Capital LP",
-        "target_company": "WEX Inc.",
-        "target_ticker": "WEX",
-        "stake_size": "4.9%",
-        "demand": "Seeks to elect three director nominees (Kurt Adams, Ellen Alemany, and Lauren Taylor Wolfe) to the WEX board to address operational underperformance and poor capital allocation.",
-        "rationale": "WEX has underperformed peer Corpay and the S&P MidCap 400 with sustained underperformance, value-destructive M&A, and poor corporate governance.",
-        "watch_for": "WEX annual meeting scheduled for May 5, 2026",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-20",
@@ -27,16 +18,7 @@
       "entity_name": "WEX Inc. (0001309108)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1309108/000092189526001035/0000921895-26-001035-index.htm",
-      "brief": {
-        "activist": "Impactive Capital LP",
-        "target_company": "WEX Inc",
-        "target_ticker": "WEX",
-        "stake_size": "4.9%",
-        "demand": "Seeking to elect three director nominees at WEX's 2026 annual meeting to address underperformance and governance issues",
-        "rationale": "Argues WEX's share price and operating performance have significantly trailed peers like Corpay and the S&P MidCap 400 with an operating margin gap exceeding 18 points",
-        "watch_for": "Annual meeting scheduled for May 5, 2026",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-20",
@@ -44,16 +26,7 @@
       "entity_name": "SUMMER ROAD LLC (0001604873)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1604873/000092189526001029/0000921895-26-001029-index.htm",
-      "brief": {
-        "activist": "Summer Road LLC (Sackler family office)",
-        "target_company": "Ingles Markets, Incorporated",
-        "target_ticker": "IMKTA",
-        "stake_size": "~3% of Class A shares",
-        "demand": "Elect independent director nominee Rory Held to board to provide Class A shareholder representation and improve transparency and capital allocation.",
-        "rationale": "Company's dual-class share structure lacks board accountability leading to poor shareholder returns, operational underperformance, and deficient disclosure practices.",
-        "watch_for": "April 30, 2026 annual meeting vote outcome",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-20",
@@ -61,16 +34,7 @@
       "entity_name": "INGLES MARKETS INC (0000050493)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/50493/000092189526001029/0000921895-26-001029-index.htm",
-      "brief": {
-        "activist": "Summer Road LLC",
-        "target_company": "Ingles Markets, Incorporated",
-        "target_ticker": "IMKTA",
-        "stake_size": "~3% of Class A shares",
-        "demand": "Seeking to elect independent director nominee Rory A. Held to the eight-member board for Class A shareholder representation",
-        "rationale": "Company lacks transparency, has underwhelming growth, stagnant Class A dividends, and poor capital allocation with significant underutilized real estate assets",
-        "watch_for": "April 30, 2026 annual shareholder meeting vote",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-17",
@@ -78,16 +42,7 @@
       "entity_name": "Saba Capital Management, L.P. (0001510281)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1510281/000090266426002055/0000902664-26-002055-index.htm",
-      "brief": {
-        "activist": "Saba Capital Management, L.P.",
-        "target_company": "BlackRock closed-end funds (multiple funds including ECAT, BIGZ, BCAT, BFZ, etc.)",
-        "target_ticker": "ECAT, BIGZ, BCAT, BFZ, BMEZ, BSTZ, MHN, MYN, MPA, BNY",
-        "stake_size": "23.9% in ECAT (~$353M), significant positions across 10 BlackRock CEFs totaling billions",
-        "demand": "Replace board members and terminate BlackRock as investment manager to unlock shareholder value by closing discount to NAV",
-        "rationale": "BlackRock funds trade at persistent discounts to net asset value with poor governance and underperformance destroying billions in shareholder value",
-        "watch_for": "2026 annual meeting proxy votes and potential settlement discussions",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-17",
@@ -95,16 +50,7 @@
       "entity_name": "GABELLI DIVIDEND & INCOME TRUST (0001260729)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1260729/000090266426002055/0000902664-26-002055-index.htm",
-      "brief": {
-        "activist": "Saba Capital Management",
-        "target_company": "The Gabelli Dividend & Income Trust",
-        "target_ticker": "GDV",
-        "stake_size": "6.4%",
-        "demand": "Seeking to elect board nominees to narrow the fund's discount to NAV and improve shareholder value through better governance",
-        "rationale": "GDV trades at a persistent discount to net asset value that the activist believes can be narrowed through board changes and corporate actions",
-        "watch_for": "Annual shareholder meeting on May 11, 2026 for trustee election results",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-17",
@@ -120,16 +66,7 @@
       "entity_name": "INGLES MARKETS INC (0000050493)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/50493/000092189526001011/0000921895-26-001011-index.htm",
-      "brief": {
-        "activist": "Summer Road LLC",
-        "target_company": "Ingles Markets, Incorporated",
-        "target_ticker": "IMKTA",
-        "stake_size": "3%",
-        "demand": "Elect independent director Rory Held to improve governance, capital allocation, transparency and restore quarterly earnings calls",
-        "rationale": "Company has poor capital allocation having retained 90% of net income ($1.5B) over a decade with flat earnings, dual-class structure limits Class A shareholder voice despite majority economic ownership",
-        "watch_for": "April 30, 2026 annual meeting vote results",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-16",
@@ -137,16 +74,7 @@
       "entity_name": "Wilson Dennis J. (0001407029)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1407029/000119312526159308/0001193125-26-159308-index.htm",
-      "brief": {
-        "activist": "Dennis J. 'Chip' Wilson / Wilson Group",
-        "target_company": "Lululemon Athletica Inc.",
-        "target_ticker": "LULU",
-        "stake_size": "8.4% / 9,904,856 shares",
-        "demand": "Elect three independent director nominees and declassify the board for annual elections",
-        "rationale": "Company has lost creative leadership and lacks proper board oversight amid stock decline and CEO succession failures",
-        "watch_for": "2026 annual meeting shareholder vote on director nominees and declassification proposal",
-        "confidence": "high"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-16",
@@ -154,16 +82,7 @@
       "entity_name": "lululemon athletica inc. (0001397187)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1397187/000119312526159308/0001193125-26-159308-index.htm",
-      "brief": {
-        "activist": "Dennis J. 'Chip' Wilson group",
-        "target_company": "lululemon athletica inc.",
-        "target_ticker": "LULU",
-        "stake_size": "8.4% - 9,904,856 shares",
-        "demand": "Replace board directors with three independent nominees and declassify the board to restore brand creativity and strategic focus.",
-        "rationale": "Company has lost brand identity and creative direction under current board leadership, resulting in 65.9% stock decline and $20 billion market cap loss.",
-        "watch_for": "2026 annual shareholder meeting proxy vote and definitive proxy statement filing",
-        "confidence": "high"
-      }
+      "brief": null
     }
   ]
 }
