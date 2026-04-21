@@ -1,8 +1,8 @@
 {
-  "fetched_at": "2026-04-21 00:38 UTC",
+  "fetched_at": "2026-04-21 16:00 UTC",
   "date_from": "2026-03-22",
   "date_to": "2026-04-21",
-  "total": 10,
+  "total": 8,
   "filings": [
     {
       "file_date": "2026-04-20",
@@ -66,22 +66,6 @@
       "entity_name": "INGLES MARKETS INC (0000050493)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/50493/000092189526001011/0000921895-26-001011-index.htm",
-      "brief": null
-    },
-    {
-      "file_date": "2026-04-16",
-      "form_type": "DFAN14A",
-      "entity_name": "Wilson Dennis J. (0001407029)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1407029/000119312526159308/0001193125-26-159308-index.htm",
-      "brief": null
-    },
-    {
-      "file_date": "2026-04-16",
-      "form_type": "DFAN14A",
-      "entity_name": "lululemon athletica inc. (0001397187)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1397187/000119312526159308/0001193125-26-159308-index.htm",
       "brief": null
     }
   ]
