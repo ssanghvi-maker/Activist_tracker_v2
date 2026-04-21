@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)file:///C:/Users/ssang/Downloads/activist_tracker_13.html -->
+<!-- saved from url=(0057)file:///C:/Users/ssang/Downloads/activist_tracker_16.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,6 +145,10 @@ tbody td{padding:11px 10px;vertical-align:middle;}
 .brief-val{font-size:12px;color:var(--text);line-height:1.5;}
 .brief-full{font-size:12px;color:var(--text);line-height:1.75;margin-top:4px;}
 .brief-loading{font-family:var(--mono);font-size:11px;color:var(--muted);font-style:italic;animation:blink 1.5s infinite;}
+.pup{font-family:var(--mono);font-weight:500;color:var(--green);}
+.pdn{font-family:var(--mono);font-weight:500;color:var(--red);}
+.pfl{font-family:var(--mono);color:var(--muted);}
+.mn{font-family:var(--mono);font-size:12px;}
 </style>
 </head>
 <body>
@@ -156,7 +160,7 @@ tbody td{padding:11px 10px;vertical-align:middle;}
   </div>
   <div class="hdr-right">
     <span class="updated" id="updatedAt">Loading filings...</span>
-    <span class="clock" id="clock">APR 20, 2026 · 04:13:48 PM</span>
+    <span class="clock" id="clock">APR 20, 2026 · 05:12:18 PM</span>
   </div>
 </div>
 
@@ -168,10 +172,10 @@ tbody td{padding:11px 10px;vertical-align:middle;}
 <!-- ═══ WATCHLIST ═══════════════════════════════════════════════ -->
 <div class="tab-content active" id="content-wl">
   <div class="stats-bar" id="statsBar">
-    <div class="stat"><div class="slabel">Campaigns</div><div class="sval">14</div><div class="ssub">Oct 2024 – Apr 2025</div></div>
-    <div class="stat"><div class="slabel">Ongoing</div><div class="sval" style="color:var(--amber)">6</div><div class="ssub">Unresolved pressure</div></div>
-    <div class="stat"><div class="slabel">Avg return</div><div class="sval" style="color:var(--green)">+4.7%</div><div class="ssub">Since announcement</div></div>
-    <div class="stat"><div class="slabel">Positive</div><div class="sval" style="color:var(--green)">6/14</div><div class="ssub">Stocks up from filing</div></div></div>
+    <div class="stat"><div class="slabel">Campaigns</div><div class="sval">29</div><div class="ssub">Oct 2024 – Apr 2026</div></div>
+    <div class="stat"><div class="slabel">Ongoing</div><div class="sval" style="color:var(--amber)">17</div><div class="ssub">Active pressure</div></div>
+    <div class="stat"><div class="slabel">Settled / Won</div><div class="sval" style="color:var(--green)">12</div><div class="ssub">Resolved</div></div>
+    <div class="stat"><div class="slabel">Avg return</div><div class="sval" style="color:var(--green)">+5.5%</div><div class="ssub">Since announcement</div></div></div>
   <div class="controls">
     <span class="flabel">Fund</span>
     <div id="fundChips"><span class="chip" data-t="f" data-v="Elliott">Elliott</span><span class="chip" data-t="f" data-v="Starboard">Starboard</span><span class="chip" data-t="f" data-v="Mantle Ridge">Mantle Ridge</span><span class="chip" data-t="f" data-v="Ancora">Ancora</span><span class="chip" data-t="f" data-v="Greenlight">Greenlight</span></div>
@@ -191,131 +195,144 @@ tbody td{padding:11px 10px;vertical-align:middle;}
         <th>Stage</th><th>Status</th><th>Ann. price</th><th>Today</th><th>Return</th>
       </tr></thead>
       <tbody id="wlBody"><tr onclick="toggleX(1)" class="">
-      <td><div class="tt">PFE</div><div class="tn">Pfizer</div></td>
+      <td><div class="tt">LW</div><div class="tn">Lamb Weston</div></td>
       <td><span class="fp fp-Starboard">Starboard</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Operational overhaul, R&amp;D efficiency post-COVID cliff</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Apr 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
       <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
       <td><span class="sp sp-Ongoing">Ongoing</span></td>
-      <td class="mn">$28</td>
-      <td class="mn">$27.56</td>
-      <td><span class="pfl">-1.6%</span></td>
+      <td class="mn">$47</td>
+      <td class="mn">$47.5</td>
+      <td><span class="pfl">+1.1%</span></td>
     </tr>
-    <tr onclick="toggleX(2)" class="">
-      <td><div class="tt">ADSK</div><div class="tn">Autodesk</div></td>
-      <td><span class="fp fp-Starboard">Starboard</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Board refresh, margin expansion, FCF discipline</td>
-      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
-      <td><span class="sp sp-Settled">Settled</span></td>
-      <td class="mn">$272</td>
-      <td class="mn">$242</td>
-      <td><span class="pdn">-11.0%</span></td>
-    </tr>
-    <tr onclick="toggleX(3)" class="">
-      <td><div class="tt">CRM</div><div class="tn">Salesforce</div></td>
-      <td><span class="fp fp-Starboard">Starboard</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Margin expansion, divest non-core M&amp;A (Slack, Tableau)</td>
-      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
-      <td><span class="sp sp-Settled">Settled</span></td>
-      <td class="mn">$300</td>
-      <td class="mn">$268</td>
-      <td><span class="pdn">-10.7%</span></td>
-    </tr>
-    <tr onclick="toggleX(4)" class="">
-      <td><div class="tt">LUV</div><div class="tn">Southwest Airlines</div></td>
+    <tr onclick="toggleX(2)" class="xrow">
+      <td><div class="tt">ALGN</div><div class="tn">Align Technology</div></td>
       <td><span class="fp fp-Elliott">Elliott</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Nov 2024</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">CEO ouster, board overhaul, end open seating policy</td>
-      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
-      <td><span class="sp sp-Won">Won</span></td>
-      <td class="mn">$27</td>
-      <td class="mn">$42.97</td>
-      <td><span class="pup">+59.1%</span></td>
-    </tr>
-    <tr onclick="toggleX(5)" class="">
-      <td><div class="tt">AAL.L</div><div class="tn">Anglo American</div></td>
-      <td><span class="fp fp-Elliott">Elliott</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Nov 2024</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Strategic review during BHP unsolicited takeover bid</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Mar 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Healthcare</td>
       <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
       <td><span class="sp sp-Ongoing">Ongoing</span></td>
-      <td class="mn">$25.8</td>
-      <td class="mn">$24.1</td>
-      <td><span class="pdn">-6.6%</span></td>
+      <td class="mn">$155</td>
+      <td class="mn">$171</td>
+      <td><span class="pup">+10.3%</span></td>
     </tr>
-    <tr onclick="toggleX(6)" class="">
-      <td><div class="tt">HON</div><div class="tn">Honeywell</div></td>
-      <td><span class="fp fp-Elliott">Elliott</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Dec 2024</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Break up conglomerate — spin off aerospace division</td>
-      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
-      <td><span class="sp sp-Settled">Settled</span></td>
-      <td class="mn">$207</td>
-      <td class="mn">$233</td>
-      <td><span class="pup">+12.6%</span></td>
-    </tr>
-    <tr onclick="toggleX(7)" class="">
-      <td><div class="tt">PTON</div><div class="tn">Peloton</div></td>
-      <td><span class="fp fp-Greenlight">Greenlight</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Explore strategic alternatives including full company sale</td>
-      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
-      <td><span class="sp sp-Ongoing">Ongoing</span></td>
-      <td class="mn">$4.2</td>
-      <td class="mn">$5.8</td>
-      <td><span class="pup">+38.1%</span></td>
-    </tr>
-    <tr onclick="toggleX(8)" class="">
-      <td><div class="tt">X</div><div class="tn">US Steel</div></td>
-      <td><span class="fp fp-Ancora">Ancora</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Replace CEO, oppose Nippon Steel acquisition</td>
-      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
-      <td><span class="sp sp-Ongoing">Ongoing</span></td>
-      <td class="mn">$38</td>
-      <td class="mn">$31.5</td>
-      <td><span class="pdn">-17.1%</span></td>
-    </tr>
-    <tr onclick="toggleX(9)" class="">
-      <td><div class="tt">APD</div><div class="tn">Air Products</div></td>
-      <td><span class="fp fp-MantleRidge">Mantle Ridge</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">CEO removal, exit hydrogen megaprojects, refocus core</td>
-      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
-      <td><span class="sp sp-Won">Won</span></td>
-      <td class="mn">$289</td>
-      <td class="mn">$255</td>
-      <td><span class="pdn">-11.8%</span></td>
-    </tr>
-    <tr onclick="toggleX(10)" class="">
-      <td><div class="tt">BP</div><div class="tn">BP</div></td>
-      <td><span class="fp fp-Elliott">Elliott</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Accelerate asset sales, boost buybacks, cut renewables spend</td>
+    <tr><td colspan="9" style="padding:0"><div class="expwrap">
+      <div class="explbl">Activist thesis</div><div class="exptxt">Elliott built a stake arguing Align is deeply undervalued given its dominant position in clear aligners. The stock fell from $730 to under $130 on slowing growth fears but Elliott believes the core Invisalign franchise, iTero scanners, and 3D printing platform have durable advantages that justify a significant re-rating.</div>
+    </div></td></tr><tr onclick="toggleX(3)" class="">
+      <td><div class="tt">FUN</div><div class="tn">Six Flags</div></td>
+      <td><span class="fp fp-JanaPartners">Jana Partners</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Mar 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
       <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot cur" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Engagement</div></td>
       <td><span class="sp sp-Ongoing">Ongoing</span></td>
-      <td class="mn">$36.5</td>
-      <td class="mn">$31.2</td>
-      <td><span class="pdn">-14.5%</span></td>
+      <td class="mn">$24</td>
+      <td class="mn">$19.97</td>
+      <td><span class="pdn">-16.8%</span></td>
     </tr>
-    <tr onclick="toggleX(11)" class="">
-      <td><div class="tt">PSX</div><div class="tn">Phillips 66</div></td>
+    <tr onclick="toggleX(4)" class="">
+      <td><div class="tt">WBD</div><div class="tn">Warner Bros Discovery</div></td>
+      <td><span class="fp fp-Ancora">Ancora</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Media</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$10</td>
+      <td class="mn">$27.47</td>
+      <td><span class="pup">+174.7%</span></td>
+    </tr>
+    <tr onclick="toggleX(5)" class="">
+      <td><div class="tt">RLLNT</div><div class="tn">Ralliant</div></td>
+      <td><span class="fp fp-IrenicCapital">Irenic Capital</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Industrials</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$32</td>
+      <td class="mn">$35</td>
+      <td><span class="pup">+9.4%</span></td>
+    </tr>
+    <tr onclick="toggleX(6)" class="">
+      <td><div class="tt">NCLH</div><div class="tn">Norwegian Cruise</div></td>
       <td><span class="fp fp-Elliott">Elliott</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Sell DCP midstream assets, 4 board seats, operational review</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
       <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
       <td><span class="sp sp-Settled">Settled</span></td>
-      <td class="mn">$140</td>
-      <td class="mn">$175</td>
-      <td><span class="pup">+25.0%</span></td>
+      <td class="mn">$17.5</td>
+      <td class="mn">$21.04</td>
+      <td><span class="pup">+20.2%</span></td>
+    </tr>
+    <tr onclick="toggleX(7)" class="">
+      <td><div class="tt">WEN</div><div class="tn">Wendy's</div></td>
+      <td><span class="fp fp-Trian">Trian</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$12.5</td>
+      <td class="mn">$6.7</td>
+      <td><span class="pdn">-46.4%</span></td>
+    </tr>
+    <tr onclick="toggleX(8)" class="">
+      <td><div class="tt">FBIN</div><div class="tn">Fortune Brands</div></td>
+      <td><span class="fp fp-EdGarden">Ed Garden</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2026</td>
+      <td style="font-size:12px;color:var(--muted)">Industrials</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot cur" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Engagement</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$47</td>
+      <td class="mn">$38.04</td>
+      <td><span class="pdn">-19.1%</span></td>
+    </tr>
+    <tr onclick="toggleX(9)" class="">
+      <td><div class="tt">LULU</div><div class="tn">Lululemon</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Dec 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$207</td>
+      <td class="mn">$167.28</td>
+      <td><span class="pdn">-19.2%</span></td>
+    </tr>
+    <tr onclick="toggleX(10)" class="">
+      <td><div class="tt">BILL</div><div class="tn">BILL Holdings</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Sep 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Technology</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot cur" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Engagement</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$50</td>
+      <td class="mn">$52</td>
+      <td><span class="pup">+4.0%</span></td>
+    </tr>
+    <tr onclick="toggleX(11)" class="">
+      <td><div class="tt">TRIP</div><div class="tn">TripAdvisor</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jul 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Technology</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$16</td>
+      <td class="mn">$10.85</td>
+      <td><span class="pdn">-32.2%</span></td>
+    </tr>
+    <tr onclick="toggleX(28)" class="">
+      <td><div class="tt">SBUX</div><div class="tn">Starbucks</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Apr 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$83</td>
+      <td class="mn">$96</td>
+      <td><span class="pup">+15.7%</span></td>
     </tr>
     <tr onclick="toggleX(12)" class="">
       <td><div class="tt">PEP</div><div class="tn">PepsiCo</div></td>
       <td><span class="fp fp-Elliott">Elliott</span></td>
       <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Mar 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Operational review, margin improvement vs Coca-Cola</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer Staples</td>
       <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
       <td><span class="sp sp-Ongoing">Ongoing</span></td>
       <td class="mn">$145</td>
@@ -326,7 +343,7 @@ tbody td{padding:11px 10px;vertical-align:middle;}
       <td><div class="tt">KVUE</div><div class="tn">Kenvue</div></td>
       <td><span class="fp fp-Starboard">Starboard</span></td>
       <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Mar 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">Board refresh, strategic review of J&amp;J spin-off value</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer Staples</td>
       <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
       <td><span class="sp sp-Settled">Settled</span></td>
       <td class="mn">$21.5</td>
@@ -334,15 +351,169 @@ tbody td{padding:11px 10px;vertical-align:middle;}
       <td><span class="pdn">-19.3%</span></td>
     </tr>
     <tr onclick="toggleX(14)" class="">
-      <td><div class="tt">SBUX</div><div class="tn">Starbucks</div></td>
+      <td><div class="tt">PSX</div><div class="tn">Phillips 66</div></td>
       <td><span class="fp fp-Elliott">Elliott</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Apr 2025</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">CEO transition oversight, accelerate operational turnaround</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Energy</td>
       <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
       <td><span class="sp sp-Settled">Settled</span></td>
-      <td class="mn">$83</td>
-      <td class="mn">$96</td>
-      <td><span class="pup">+15.7%</span></td>
+      <td class="mn">$140</td>
+      <td class="mn">$175</td>
+      <td><span class="pup">+25.0%</span></td>
+    </tr>
+    <tr onclick="toggleX(15)" class="">
+      <td><div class="tt">BP</div><div class="tn">BP</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Energy</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot cur" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Engagement</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$36.5</td>
+      <td class="mn">$31.2</td>
+      <td><span class="pdn">-14.5%</span></td>
+    </tr>
+    <tr onclick="toggleX(16)" class="">
+      <td><div class="tt">PENN</div><div class="tn">PENN Entertainment</div></td>
+      <td><span class="fp fp-HGVora">HG Vora</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Feb 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$16</td>
+      <td class="mn">$19.5</td>
+      <td><span class="pup">+21.9%</span></td>
+    </tr>
+    <tr onclick="toggleX(17)" class="">
+      <td><div class="tt">APD</div><div class="tn">Air Products</div></td>
+      <td><span class="fp fp-MantleRidge">Mantle Ridge</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Industrials</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
+      <td><span class="sp sp-Won">Won</span></td>
+      <td class="mn">$289</td>
+      <td class="mn">$255</td>
+      <td><span class="pdn">-11.8%</span></td>
+    </tr>
+    <tr onclick="toggleX(18)" class="">
+      <td><div class="tt">X</div><div class="tn">US Steel</div></td>
+      <td><span class="fp fp-Ancora">Ancora</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Materials</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$38</td>
+      <td class="mn">$31.5</td>
+      <td><span class="pdn">-17.1%</span></td>
+    </tr>
+    <tr onclick="toggleX(19)" class="">
+      <td><div class="tt">PTON</div><div class="tn">Peloton</div></td>
+      <td><span class="fp fp-Greenlight">Greenlight</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$4.2</td>
+      <td class="mn">$5.14</td>
+      <td><span class="pup">+22.4%</span></td>
+    </tr>
+    <tr onclick="toggleX(20)" class="">
+      <td><div class="tt">LW</div><div class="tn">Jana at Lamb Weston</div></td>
+      <td><span class="fp fp-JanaPartners">Jana Partners</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Consumer</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
+      <td><span class="sp sp-Won">Won</span></td>
+      <td class="mn">$43</td>
+      <td class="mn">$47.5</td>
+      <td><span class="pup">+10.5%</span></td>
+    </tr>
+    <tr onclick="toggleX(29)" class="">
+      <td><div class="tt">SOLV</div><div class="tn">Solventum</div></td>
+      <td><span class="fp fp-Trian">Trian</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Jan 2025</td>
+      <td style="font-size:12px;color:var(--muted)">Healthcare</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$80</td>
+      <td class="mn">$70.48</td>
+      <td><span class="pdn">-11.9%</span></td>
+    </tr>
+    <tr onclick="toggleX(21)" class="">
+      <td><div class="tt">HON</div><div class="tn">Honeywell</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Dec 2024</td>
+      <td style="font-size:12px;color:var(--muted)">Industrials</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$207</td>
+      <td class="mn">$233</td>
+      <td><span class="pup">+12.6%</span></td>
+    </tr>
+    <tr onclick="toggleX(22)" class="">
+      <td><div class="tt">LUV</div><div class="tn">Southwest Airlines</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Nov 2024</td>
+      <td style="font-size:12px;color:var(--muted)">Industrials</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Resolved</div></td>
+      <td><span class="sp sp-Won">Won</span></td>
+      <td class="mn">$27</td>
+      <td class="mn">$42.97</td>
+      <td><span class="pup">+59.1%</span></td>
+    </tr>
+    <tr onclick="toggleX(23)" class="">
+      <td><div class="tt">AAL.L</div><div class="tn">Anglo American</div></td>
+      <td><span class="fp fp-Elliott">Elliott</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Nov 2024</td>
+      <td style="font-size:12px;color:var(--muted)">Materials</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$25.8</td>
+      <td class="mn">$24.1</td>
+      <td><span class="pdn">-6.6%</span></td>
+    </tr>
+    <tr onclick="toggleX(24)" class="">
+      <td><div class="tt">WEX</div><div class="tn">WEX Inc</div></td>
+      <td><span class="fp fp-ImpactiveCapital">Impactive Capital</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
+      <td style="font-size:12px;color:var(--muted)">Technology</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot cur" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Engagement</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$155</td>
+      <td class="mn">$160.33</td>
+      <td><span class="pup">+3.4%</span></td>
+    </tr>
+    <tr onclick="toggleX(25)" class="">
+      <td><div class="tt">PFE</div><div class="tn">Pfizer</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
+      <td style="font-size:12px;color:var(--muted)">Healthcare</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot cur" title="Demands made"></div><div class="dot" title="Engagement"></div><div class="dot" title="Settlement/Vote"></div><div class="dot" title="Resolved"></div></div><div class="slbl">Demands made</div></td>
+      <td><span class="sp sp-Ongoing">Ongoing</span></td>
+      <td class="mn">$28</td>
+      <td class="mn">$27.56</td>
+      <td><span class="pfl">-1.6%</span></td>
+    </tr>
+    <tr onclick="toggleX(26)" class="">
+      <td><div class="tt">CRM</div><div class="tn">Salesforce</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
+      <td style="font-size:12px;color:var(--muted)">Technology</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$300</td>
+      <td class="mn">$268</td>
+      <td><span class="pdn">-10.7%</span></td>
+    </tr>
+    <tr onclick="toggleX(27)" class="">
+      <td><div class="tt">ADSK</div><div class="tn">Autodesk</div></td>
+      <td><span class="fp fp-Starboard">Starboard</span></td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">Oct 2024</td>
+      <td style="font-size:12px;color:var(--muted)">Technology</td>
+      <td><div class="sdots"><div class="dot done" title="Stake disclosed"></div><div class="dot done" title="Demands made"></div><div class="dot done" title="Engagement"></div><div class="dot done" title="Settlement/Vote"></div><div class="dot done" title="Resolved"></div></div><div class="slbl">Settlement/Vote</div></td>
+      <td><span class="sp sp-Settled">Settled</span></td>
+      <td class="mn">$272</td>
+      <td class="mn">$242</td>
+      <td><span class="pdn">-11.0%</span></td>
     </tr>
     </tbody>
     </table>
@@ -395,7 +566,7 @@ tbody td{padding:11px 10px;vertical-align:middle;}
 
     <table class="ftable" id="ftable" style="display:none">
       <thead><tr>
-        <th>Filed</th><th>Type</th><th>Subject company</th><th>Filer (activist)</th><th style="width:200px">Actions</th>
+        <th>Filed</th><th>Type</th><th>Company &amp; Activist &amp; Demand</th><th style="width:200px">Actions</th>
       </tr></thead>
       <tbody id="fbody"></tbody>
     </table>
@@ -408,48 +579,65 @@ tbody td{padding:11px 10px;vertical-align:middle;}
 <script>
 // ═══ WATCHLIST DATA ═══════════════════════════════════════════════
 const C=[
-  {id:1,date:"Oct 2024",target:"Pfizer",ticker:"PFE",fund:"Starboard",demand:"Operational overhaul, R&D efficiency post-COVID cliff",status:"Ongoing",stage:2,ann:28.0,now:27.56,
-   thesis:"Starboard accumulated ~$1B stake citing margin contraction and failure to justify the $43B Seagen acquisition. Pushed for operational targets and new independent directors.",
-   hist:"Starboard typically resolves in 6–9 months via board settlement. Healthcare campaigns run longer. No settlement reached yet — Pfizer board has been resistant."},
-  {id:2,date:"Oct 2024",target:"Autodesk",ticker:"ADSK",fund:"Starboard",demand:"Board refresh, margin expansion, FCF discipline",status:"Settled",stage:4,ann:272,now:242,
-   thesis:"Targeted after accounting irregularities delayed filings and margins missed targets. Pushed for two new independent directors and a path to 40%+ FCF margins.",
-   hist:"Settled within 4 months — two new directors added. Stock underperformed post-settlement due to software sector weakness and AI disruption concerns."},
-  {id:3,date:"Oct 2024",target:"Salesforce",ticker:"CRM",fund:"Starboard",demand:"Margin expansion, divest non-core M&A (Slack, Tableau)",status:"Settled",stage:4,ann:300,now:268,
-   thesis:"Joined Elliott and ValueAct in pressuring Salesforce to cut costs from its acquisition spree and improve margins that lagged pure-play SaaS peers.",
-   hist:"Multi-activist pile-on is historically very effective. Salesforce improved margins significantly. Stock weakness reflects macro and AI pressures, not activist failure."},
-  {id:4,date:"Nov 2024",target:"Southwest Airlines",ticker:"LUV",fund:"Elliott",demand:"CEO ouster, board overhaul, end open seating policy",status:"Won",stage:5,ann:27,now:42.97,
-   thesis:"Elliott took ~$2B stake (11%) and ran a full proxy campaign demanding CEO removal. Included detailed operational blueprint and multiple public letters to the board.",
-   hist:"Elliott's most aggressive U.S. airline play. Got 5 board seats — most in any single U.S. settlement. Jordan kept his job as concession. Stock up 59%."},
-  {id:5,date:"Nov 2024",target:"Anglo American",ticker:"AAL.L",fund:"Elliott",demand:"Strategic review during BHP unsolicited takeover bid",status:"Ongoing",stage:2,ann:25.80,now:24.10,
-   thesis:"Elliott entered during Anglo's defense against BHP's unsolicited takeover. Believed management's restructuring plan too slow; value could be unlocked faster.",
-   hist:"International campaigns are harder for Elliott. UK governance norms differ. Slow-moving — expect resolution in 2026 proxy season."},
-  {id:6,date:"Dec 2024",target:"Honeywell",ticker:"HON",fund:"Elliott",demand:"Break up conglomerate — spin off aerospace division",status:"Settled",stage:4,ann:207,now:233,
-   thesis:"Elliott argued conglomerate structure destroyed value. Aerospace worth more standalone; automation had different growth dynamics. Classic sum-of-parts thesis.",
-   hist:"Honeywell announced aerospace spin-off and began selling non-core units. Stock up 13%. Textbook Elliott industrials playbook."},
-  {id:7,date:"Jan 2025",target:"Peloton",ticker:"PTON",fund:"Greenlight",demand:"Explore strategic alternatives including full company sale",status:"Ongoing",stage:2,ann:4.20,now:5.80,
-   thesis:"Greenlight argued Peloton's brand and hardware are worth far more to a strategic acquirer — Nike, Apple, or PE — than as a standalone struggling growth company.",
-   hist:"Greenlight is value-oriented, not confrontational. Outcome depends on whether a buyer emerges. Apple and Nike have been rumored. High binary risk."},
-  {id:8,date:"Jan 2025",target:"US Steel",ticker:"X",fund:"Ancora",demand:"Replace CEO, oppose Nippon Steel acquisition",status:"Ongoing",stage:2,ann:38,now:31.50,
-   thesis:"Ancora launched 9-candidate proxy campaign opposing the $14.9B Nippon Steel deal and CEO Burritt, arguing the deal undervalued the company.",
-   hist:"Ancora's most aggressive campaign. Complex given Trump opposition to Nippon deal. Stock has drifted down on deal uncertainty."},
-  {id:9,date:"Jan 2025",target:"Air Products",ticker:"APD",fund:"Mantle Ridge",demand:"CEO removal, exit hydrogen megaprojects, refocus core",status:"Won",stage:5,ann:289,now:255,
-   thesis:"Mantle Ridge argued CEO Ghasemi overcommitted to capital-intensive green hydrogen that destroyed value. Wanted return to core industrial gas business.",
-   hist:"Won 3 of 4 board seats. CEO voted off the board — one of 2025's most decisive wins. Stock down due to hydrogen project write-downs and transition uncertainty."},
-  {id:10,date:"Feb 2025",target:"BP",ticker:"BP",fund:"Elliott",demand:"Accelerate asset sales, boost buybacks, cut renewables spend",status:"Ongoing",stage:3,ann:36.50,now:31.20,
-   thesis:"Elliott took multi-billion stake arguing BP overcorrected on green energy at expense of shareholder returns. Demanded faster pivot back to oil and gas.",
-   hist:"Elliott deployed $3.5B+ — one of their largest European positions. BP has accelerated divestitures. Resolution likely via operational concessions."},
-  {id:11,date:"Feb 2025",target:"Phillips 66",ticker:"PSX",fund:"Elliott",demand:"Sell DCP midstream assets, 4 board seats, operational review",status:"Settled",stage:4,ann:140,now:175,
-   thesis:"Elliott argued midstream assets were hidden value not being priced into a refining conglomerate. Had been in PSX for over a year before escalation.",
-   hist:"Secured 2 of 4 board seats. Midstream asset sale underway. Stock up 25% from announcement — one of the cleaner Elliott wins in energy."},
-  {id:12,date:"Mar 2025",target:"PepsiCo",ticker:"PEP",fund:"Elliott",demand:"Operational review, margin improvement vs Coca-Cola",status:"Ongoing",stage:2,ann:145,now:157,
-   thesis:"Elliott built a 'sizable' stake arguing PepsiCo margins have lagged Coca-Cola for years. Snacks business may deserve separate strategic review.",
-   hist:"Very early stage. Elliott moves slowly on mega-cap consumer names — could take 12–18 months. No confrontational moves yet."},
-  {id:13,date:"Mar 2025",target:"Kenvue",ticker:"KVUE",fund:"Starboard",demand:"Board refresh, strategic review of J&J spin-off value",status:"Settled",stage:5,ann:21.50,now:17.35,
-   thesis:"Starboard argued Kenvue was undervalued post J&J spin due to bloated cost structure. Pushed for board refresh and formal strategic alternatives process.",
-   hist:"Starboard's pressure led directly to Kimberly-Clark's $49B acquisition. Appears down on paper but the M&A outcome is a major win. Deal closes H2 2026."},
-  {id:14,date:"Apr 2025",target:"Starbucks",ticker:"SBUX",fund:"Elliott",demand:"CEO transition oversight, accelerate operational turnaround",status:"Settled",stage:4,ann:83,now:96,
-   thesis:"Elliott played key role orchestrating Brian Niccol's arrival from Chipotle and stayed engaged post-hire to ensure turnaround plans were credible.",
-   hist:"More constructive than confrontational. Niccol appointment seen as a win. Stock up 16% since Elliott's April 2025 engagement escalated."}
+  // ── ONGOING (latest first) ─────────────────────────────────────
+  {id:1, date:"2026-04-01", dateD:"Apr 2026", target:"Lamb Weston",         ticker:"LW",   fund:"Starboard",       sector:"Consumer",        status:"Ongoing", stage:2, ann:47.0,  now:47.50,
+   thesis:"Starboard built a sizable stake after Jana Partners won board control in 2025. Starboard argues the new management team is moving too slowly on cost cuts and margin recovery. Specifically pushing for a strategic review of APAC assets, divestiture of underperforming international operations, and a medium-term 25% EBITDA margin target."},
+  {id:2, date:"2026-03-01", dateD:"Mar 2026", target:"Align Technology",    ticker:"ALGN", fund:"Elliott",          sector:"Healthcare",      status:"Ongoing", stage:2, ann:155.0, now:171.0,
+   thesis:"Elliott built a stake arguing Align is deeply undervalued given its dominant position in clear aligners. The stock fell from $730 to under $130 on slowing growth fears but Elliott believes the core Invisalign franchise, iTero scanners, and 3D printing platform have durable advantages that justify a significant re-rating."},
+  {id:3, date:"2026-03-01", dateD:"Mar 2026", target:"Six Flags",           ticker:"FUN",  fund:"Jana Partners",   sector:"Consumer",        status:"Ongoing", stage:3, ann:24.0,  now:19.97,
+   thesis:"Jana (with Travis Kelce) built a 9% stake arguing the 2024 Cedar Fair merger has been disastrously managed — parks sold off, coasters shuttered, $5.2B in debt, stock down 55%. Escalated in March 2026 to demand a full company sale, calling performance 'vomit-inducing.' Board chair replaced as first concession."},
+  {id:4, date:"2026-02-01", dateD:"Feb 2026", target:"Warner Bros Discovery", ticker:"WBD",fund:"Ancora",           sector:"Media",           status:"Ongoing", stage:2, ann:10.0,  now:27.47,
+   thesis:"Ancora built a stake and publicly opposed WBD's planned merger with Netflix, arguing it is inferior to a competing offer from Paramount/Skydance backed by Larry Ellison. Filed proxy materials urging shareholders to reject the Netflix deal and engage with Paramount's offer which includes more cash and a clearer regulatory path."},
+  {id:5, date:"2026-02-01", dateD:"Feb 2026", target:"Ralliant",            ticker:"RLLNT",fund:"Irenic Capital",   sector:"Industrials",     status:"Ongoing", stage:2, ann:32.0,  now:35.0,
+   thesis:"Irenic built a ~2% stake in this precision technology spinoff and wants management to cut costs aggressively, accelerate share buybacks, and sharpen strategic focus on its defense and electronics business which Irenic believes is being undervalued as part of a conglomerate structure."},
+  {id:6, date:"2026-02-01", dateD:"Feb 2026", target:"Norwegian Cruise",    ticker:"NCLH", fund:"Elliott",          sector:"Consumer",        status:"Settled", stage:4, ann:17.5,  now:21.04,
+   thesis:"Elliott built a large stake after NCLH reported weak Q4 2025 results and appointed an inexperienced CEO. Pushed for a full board overhaul. Settled March 2026 — four board members replaced with five new independent directors, CEO also named Chairman."},
+  {id:7, date:"2026-01-01", dateD:"Jan 2026", target:"Wendy's",             ticker:"WEN",  fund:"Trian",            sector:"Consumer",        status:"Ongoing", stage:2, ann:12.5,  now:6.70,
+   thesis:"Trian holds 16.24% of Wendy's and filed an SEC document calling the stock undervalued. Pushing management to improve same-store sales, close the valuation gap vs. McDonald's and Restaurant Brands, and consider strategic alternatives including potential M&A."},
+  {id:8, date:"2026-01-01", dateD:"Jan 2026", target:"Fortune Brands",      ticker:"FBIN", fund:"Ed Garden",        sector:"Industrials",     status:"Ongoing", stage:3, ann:47.0,  now:38.04,
+   thesis:"Ed Garden (former Trian partner) built a stake arguing FBIN's home products business (Moen, Master Lock, Therma-Tru) is structurally undervalued after years of margin underperformance. CEO Nicholas Fink announced resignation Feb 2026 — a direct outcome of the pressure. New CEO takes over May 2026."},
+  {id:9, date:"2025-12-18", dateD:"Dec 2025", target:"Lululemon",           ticker:"LULU", fund:"Elliott",          sector:"Consumer",        status:"Ongoing", stage:2, ann:207.0, now:167.28,
+   thesis:"Elliott took a $1B+ stake and nominated three board directors including a potential CEO candidate (Jane Nielsen, former Ralph Lauren CFO). Argues lululemon has mismanaged its international expansion, lost its premium brand positioning, and that its stock has been a significant underperformer despite strong underlying business fundamentals."},
+  {id:10,date:"2025-09-01", dateD:"Sep 2025", target:"BILL Holdings",       ticker:"BILL", fund:"Starboard",        sector:"Technology",      status:"Ongoing", stage:3, ann:50.0,  now:52.0,
+   thesis:"Starboard built an 8.5% stake in this payments software company after shares fell 85% from peak. The fund argues BILL has strong unit economics for small business financial operations but management has failed to articulate a clear path to profitability. Demanding board representation and a credible 'Rule of 40' plan."},
+  {id:11,date:"2025-07-01", dateD:"Jul 2025", target:"TripAdvisor",         ticker:"TRIP", fund:"Starboard",        sector:"Technology",      status:"Settled", stage:4, ann:16.0,  now:10.85,
+   thesis:"Starboard built a 9.4% stake arguing TripAdvisor's three separate businesses were worth more separated than together. Pushed for a strategic review and board refresh. By Feb 2026 escalated to seek majority board control, then settled March 2026 with 4 board seats."},
+  {id:12,date:"2025-03-01", dateD:"Mar 2025", target:"PepsiCo",             ticker:"PEP",  fund:"Elliott",          sector:"Consumer Staples",status:"Ongoing", stage:2, ann:145.0, now:157.0,
+   thesis:"Elliott built a 'sizable' stake arguing PepsiCo's operating margins have structurally lagged Coca-Cola despite comparable scale and brand strength. The fund wants a formal operational review, a credible margin improvement roadmap, and is eyeing whether the Frito-Lay snacks business deserves a separate strategic review."},
+  {id:13,date:"2025-03-01", dateD:"Mar 2025", target:"Kenvue",              ticker:"KVUE", fund:"Starboard",        sector:"Consumer Staples",status:"Settled", stage:5, ann:21.5,  now:17.35,
+   thesis:"Starboard argued Kenvue was undervalued post J&J spinoff due to bloated cost structure. Pushed for board refresh and formal strategic alternatives. Outcome was a $49B acquisition by Kimberly-Clark — a home run for Starboard. Deal pending close H2 2026."},
+  {id:14,date:"2025-02-01", dateD:"Feb 2025", target:"Phillips 66",         ticker:"PSX",  fund:"Elliott",          sector:"Energy",          status:"Settled", stage:4, ann:140.0, now:175.0,
+   thesis:"Elliott argued PSX's midstream assets (DCP Midstream) were hidden value not being priced into a refining conglomerate, and that the company had a history of poor capital allocation. Settled with 2 board seats and a formal midstream asset sale process."},
+  {id:15,date:"2025-02-01", dateD:"Feb 2025", target:"BP",                  ticker:"BP",   fund:"Elliott",          sector:"Energy",          status:"Ongoing", stage:3, ann:36.5,  now:31.20,
+   thesis:"Elliott deployed $3.5B+ arguing BP overcorrected on green energy transition at the expense of shareholder returns. Demanding faster asset sales, larger buybacks, and a strategic pivot back toward oil and gas cash generation to close the valuation gap vs. Shell and TotalEnergies."},
+  {id:16,date:"2025-02-01", dateD:"Feb 2025", target:"PENN Entertainment",  ticker:"PENN", fund:"HG Vora",          sector:"Consumer",        status:"Settled", stage:4, ann:16.0,  now:19.50,
+   thesis:"HG Vora argued PENN's ESPN Bet digital pivot was a costly strategic mistake that destroyed hundreds of millions in shareholder value. Waged an aggressive proxy fight, sued PENN for board manipulation. Settled Feb 2026 with 3 board seats and litigation dropped."},
+  {id:17,date:"2025-01-01", dateD:"Jan 2025", target:"Air Products",        ticker:"APD",  fund:"Mantle Ridge",     sector:"Industrials",     status:"Won", stage:5, ann:289.0, now:255.0,
+   thesis:"Mantle Ridge argued CEO Ghasemi had overcommitted to capital-intensive green hydrogen megaprojects that were destroying shareholder value, while neglecting the core industrial gas business. Won 3 of 4 board seats at the 2025 annual meeting and CEO was voted off the board."},
+  {id:18,date:"2025-01-01", dateD:"Jan 2025", target:"US Steel",            ticker:"X",    fund:"Ancora",           sector:"Materials",       status:"Ongoing", stage:2, ann:38.0,  now:31.50,
+   thesis:"Ancora ran a 9-candidate proxy campaign opposing the $14.9B Nippon Steel deal and CEO Burritt, arguing the deal undervalued the company and that management had chronically misallocated capital. Complicated by Trump's political opposition to Nippon, creating an unusual activist/White House alignment."},
+  {id:19,date:"2025-01-01", dateD:"Jan 2025", target:"Peloton",             ticker:"PTON", fund:"Greenlight",       sector:"Consumer",        status:"Ongoing", stage:2, ann:4.20,  now:5.14,
+   thesis:"David Einhorn's Greenlight Capital built a position arguing Peloton's brand equity, hardware installed base, and subscription revenue stream are worth far more in the hands of a strategic acquirer — Nike, Apple, or a large PE firm — than as a standalone struggling growth company."},
+  {id:20,date:"2025-01-01", dateD:"Jan 2025", target:"Jana at Lamb Weston", ticker:"LW",   fund:"Jana Partners",   sector:"Consumer",        status:"Won", stage:5, ann:43.0,  now:47.50,
+   thesis:"Jana built a significant stake in Lamb Weston arguing the company was deeply undervalued and management had made a series of operational missteps. After 7 months of pressure and a proxy fight threat, Jana won 4 board seats including a new chairman and pushed out the CEO."},
+  {id:21,date:"2024-12-01", dateD:"Dec 2024", target:"Honeywell",           ticker:"HON",  fund:"Elliott",          sector:"Industrials",     status:"Settled", stage:4, ann:207.0, now:233.0,
+   thesis:"Elliott argued Honeywell's conglomerate structure — aerospace, building automation, and performance materials — was destroying value through a conglomerate discount. Settled quickly with Honeywell agreeing to spin off its aerospace division and sell non-core units."},
+  {id:22,date:"2024-11-01", dateD:"Nov 2024", target:"Southwest Airlines",  ticker:"LUV",  fund:"Elliott",          sector:"Industrials",     status:"Won", stage:5, ann:27.0,  now:42.97,
+   thesis:"Elliott took an ~$2B (11%) stake and ran one of the most aggressive US activist campaigns in years, demanding CEO removal, end to open seating policy, and fundamental operational reform. Filed a detailed 'fixing Southwest' blueprint. Won 5 board seats and the stock has risen ~60% from announcement."},
+  {id:23,date:"2024-11-01", dateD:"Nov 2024", target:"Anglo American",      ticker:"AAL.L",fund:"Elliott",          sector:"Materials",       status:"Ongoing", stage:2, ann:25.80, now:24.10,
+   thesis:"Elliott entered during Anglo's defense against BHP's unsolicited takeover. Believed management's restructuring plan too slow; value could be unlocked faster via deal or faster asset sales. UK governance norms differ from US — resolution expected at 2026 proxy season."},
+  {id:24,date:"2024-10-01", dateD:"Oct 2024", target:"WEX Inc",             ticker:"WEX",  fund:"Impactive Capital",sector:"Technology",      status:"Ongoing", stage:3, ann:155.0, now:160.33,
+   thesis:"Impactive Capital, a long-term ESG-oriented activist, built a 5% stake arguing WEX — payment solutions to fleet operators and healthcare companies — is trading at a significant discount to peers due to poor capital allocation and lack of board accountability. Filed a proxy contest for board seats at the May 2026 annual meeting."},
+  {id:25,date:"2024-10-01", dateD:"Oct 2024", target:"Pfizer",              ticker:"PFE",  fund:"Starboard",        sector:"Healthcare",      status:"Ongoing", stage:2, ann:28.0,  now:27.56,
+   thesis:"Starboard built a ~$1B stake citing Pfizer's failure to improve margins after its COVID revenue windfall, particularly the post-pandemic collapse and the $43B Seagen acquisition. Pushing for operational restructuring, cost discipline, and a credible pipeline narrative to restore investor confidence."},
+  {id:26,date:"2024-10-01", dateD:"Oct 2024", target:"Salesforce",          ticker:"CRM",  fund:"Starboard",        sector:"Technology",      status:"Settled", stage:4, ann:300.0, now:268.0,
+   thesis:"Joined Elliott and ValueAct in a multi-activist campaign arguing Salesforce's margins badly lagged pure-play SaaS peers due to its costly acquisition spree (Slack, Tableau, MuleSoft). Pressure drove significant margin improvement — operating margins expanded from ~3% to ~30%+ over two years."},
+  {id:27,date:"2024-10-01", dateD:"Oct 2024", target:"Autodesk",            ticker:"ADSK", fund:"Starboard",        sector:"Technology",      status:"Settled", stage:4, ann:272.0, now:242.0,
+   thesis:"Targeted after accounting irregularities delayed filings and management missed margin targets. Starboard pushed for two new independent directors and a credible path to 40%+ free cash flow margins. Settled within 4 months with board additions."},
+  {id:28,date:"2025-04-01", dateD:"Apr 2025", target:"Starbucks",           ticker:"SBUX", fund:"Elliott",          sector:"Consumer",        status:"Settled", stage:4, ann:83.0,  now:96.0,
+   thesis:"Elliott played a constructive role in orchestrating Brian Niccol's arrival from Chipotle as the new CEO, then stayed engaged post-hiring to hold management accountable to the turnaround plan. More partnership than confrontation — Elliott's involvement is credited with accelerating Starbucks' leadership transition."},
+  {id:29,date:"2025-01-01", dateD:"Jan 2025", target:"Solventum",           ticker:"SOLV", fund:"Trian",            sector:"Healthcare",      status:"Ongoing", stage:2, ann:80.0,  now:70.48,
+   thesis:"Trian built a stake in this 3M healthcare spinoff arguing the company has significant cost reduction opportunity and that management has been too slow to rationalize the business post-separation. Trian's own portfolio companies have demonstrated the margin improvement opportunity and is pushing for a formal strategic review."},
 ];
 
 const FI={
@@ -515,37 +703,38 @@ function renderWL(){
     if(wlF.fund&&c.fund!==wlF.fund)return false;
     if(wlF.status&&c.status!==wlF.status)return false;
     return true;
-  });
-  const avgP=rows.length?rows.reduce((s,c)=>s+perf(c.ann,c.now),0)/rows.length:0;
-  const wins=rows.filter(c=>perf(c.ann,c.now)>0).length;
+  }).sort((a,b)=>b.date.localeCompare(a.date));
   const ong=rows.filter(c=>c.status==='Ongoing').length;
+  const won=rows.filter(c=>c.status==='Won').length;
+  const settled=rows.filter(c=>c.status==='Settled').length;
+  const avgP=rows.length?rows.reduce((s,c)=>s+((c.now-c.ann)/c.ann*100),0)/rows.length:0;
   document.getElementById('statsBar').innerHTML=`
-    <div class="stat"><div class="slabel">Campaigns</div><div class="sval">${rows.length}</div><div class="ssub">Oct 2024 – Apr 2025</div></div>
-    <div class="stat"><div class="slabel">Ongoing</div><div class="sval" style="color:var(--amber)">${ong}</div><div class="ssub">Unresolved pressure</div></div>
-    <div class="stat"><div class="slabel">Avg return</div><div class="sval" style="color:${avgP>=0?'var(--green)':'var(--red)'}">${avgP>=0?'+':''}${avgP.toFixed(1)}%</div><div class="ssub">Since announcement</div></div>
-    <div class="stat"><div class="slabel">Positive</div><div class="sval" style="color:var(--green)">${wins}/${rows.length}</div><div class="ssub">Stocks up from filing</div></div>`;
+    <div class="stat"><div class="slabel">Campaigns</div><div class="sval">${rows.length}</div><div class="ssub">Oct 2024 – Apr 2026</div></div>
+    <div class="stat"><div class="slabel">Ongoing</div><div class="sval" style="color:var(--amber)">${ong}</div><div class="ssub">Active pressure</div></div>
+    <div class="stat"><div class="slabel">Settled / Won</div><div class="sval" style="color:var(--green)">${settled+won}</div><div class="ssub">Resolved</div></div>
+    <div class="stat"><div class="slabel">Avg return</div><div class="sval" style="color:${avgP>=0?'var(--green)':'var(--red)'}">${avgP>=0?'+':''}${avgP.toFixed(1)}%</div><div class="ssub">Since announcement</div></div>`;
   const tb=document.getElementById('wlBody'),em=document.getElementById('wlEmpty');
   if(!rows.length){tb.innerHTML='';em.style.display='block';return;}
   em.style.display='none';
   tb.innerHTML=rows.map(c=>{
-    const p=perf(c.ann,c.now),ix=xid===c.id;
+    const ix=xid===c.id;
     const fk=c.fund.replace(/\s/g,'');
+    const p=((c.now-c.ann)/c.ann*100);
+    const ph=p>=2?`<span class="pup">${p>=0?'+':''}${p.toFixed(1)}%</span>`:p<=-2?`<span class="pdn">${p.toFixed(1)}%</span>`:`<span class="pfl">${p>=0?'+':''}${p.toFixed(1)}%</span>`;
     return`<tr onclick="toggleX(${c.id})" class="${ix?'xrow':''}">
       <td><div class="tt">${c.ticker}</div><div class="tn">${c.target}</div></td>
       <td><span class="fp fp-${fk}">${c.fund}</span></td>
-      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">${c.date}</td>
-      <td style="font-size:12px;color:var(--muted);max-width:180px;line-height:1.4">${c.demand}</td>
+      <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">${c.dateD}</td>
+      <td style="font-size:12px;color:var(--muted)">${c.sector}</td>
       <td>${sh(c.stage,c.status)}</td>
       <td><span class="sp sp-${c.status}">${c.status}</span></td>
       <td class="mn">$${c.ann.toLocaleString()}</td>
       <td class="mn">$${c.now.toLocaleString()}</td>
-      <td>${ph(p)}</td>
+      <td>${ph}</td>
     </tr>
     ${ix?`<tr><td colspan="9" style="padding:0"><div class="expwrap">
-      <div class="expgrid">
-        <div><div class="explbl">Activist thesis</div><div class="exptxt">${c.thesis}</div></div>
-        <div><div class="explbl">Fund pattern on this campaign type</div><div class="exptxt">${c.hist}</div></div>
-      </div></div></td></tr>`:''}`;
+      <div class="explbl">Activist thesis</div><div class="exptxt">${c.thesis}</div>
+    </div></td></tr>`:''}`;
   }).join('');
 }
 function toggleX(id){xid=xid===id?null:id;renderWL();}
@@ -636,19 +825,30 @@ function renderFeed(){
     const fd=f.file_date
       ?new Date(f.file_date+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})
       :'—';
-    const filers=(f.filer_names||[]).join(', ')||'—';
     const isExp=expandedBrief===idx;
+    const b=f.brief;
+
+    // If we have a brief, use its richer data for display
+    const displayCompany = b&&b.target_company ? b.target_company : f.entity_name||'—';
+    const displayTicker  = b&&b.target_ticker  ? ` <span style="font-family:var(--mono);color:var(--amber);font-size:11px">${b.target_ticker}</span>` : '';
+    const displayActivist= b&&b.activist       ? b.activist : (f.filer_names||[]).join(', ')||'—';
+    const displayDemand  = b&&b.demand         ? `<div style="font-size:11px;color:var(--muted);margin-top:3px;line-height:1.4">${b.demand}</div>` : '';
+    const hasBrief = b ? '✦ Brief' : '✦ Brief';
+
     return`<tr class="${isExp?'xrow':''}">
       <td style="font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap">${fd}</td>
       <td>${formTag(f.form_type)}</td>
-      <td style="font-weight:500;font-size:13px">${f.entity_name||'—'}</td>
-      <td style="font-size:12px;color:var(--muted)">${filers}</td>
-      <td style="display:flex;gap:6px;align-items:center">
+      <td>
+        <div style="font-weight:500;font-size:13px">${displayCompany}${displayTicker}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px">${displayActivist}</div>
+        ${displayDemand}
+      </td>
+      <td style="display:flex;gap:6px;align-items:center;padding-top:14px">
         <a class="elink" href="${f.filing_url||'#'}" target="_blank" rel="noopener">↗ Filing</a>
-        <button class="brief-btn" id="bbtn-${idx}" onclick="runBrief(${idx})">✦ Brief</button>
+        <button class="brief-btn" id="bbtn-${idx}" onclick="runBrief(${idx})">${hasBrief}</button>
       </td>
     </tr>
-    ${isExp?`<tr class="brief-row"><td colspan="5"><div class="brief-wrap" id="brief-${idx}"></div></td></tr>`:''}`;
+    ${isExp?`<tr class="brief-row"><td colspan="4"><div class="brief-wrap" id="brief-${idx}"></div></td></tr>`:''}`;
   }).join('');
 
   ftable.style.display='table';
