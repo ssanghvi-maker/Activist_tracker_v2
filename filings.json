@@ -1,9 +1,25 @@
 {
-  "fetched_at": "2026-04-22 15:58 UTC",
-  "date_from": "2026-03-23",
-  "date_to": "2026-04-22",
-  "total": 6,
+  "fetched_at": "2026-04-23 17:03 UTC",
+  "date_from": "2026-03-24",
+  "date_to": "2026-04-23",
+  "total": 4,
   "filings": [
+    {
+      "file_date": "2026-04-22",
+      "form_type": "DFAN14A",
+      "entity_name": "Impactive Capital LP (0001786767)",
+      "filer_names": [],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1786767/000092189526001064/0000921895-26-001064-index.htm",
+      "brief": null
+    },
+    {
+      "file_date": "2026-04-22",
+      "form_type": "DFAN14A",
+      "entity_name": "WEX Inc. (0001309108)",
+      "filer_names": [],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1309108/000092189526001064/0000921895-26-001064-index.htm",
+      "brief": null
+    },
     {
       "file_date": "2026-04-21",
       "form_type": "DFAN14A",
@@ -18,38 +34,6 @@
       "entity_name": "WEX Inc. (0001309108)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1309108/000092189526001049/0000921895-26-001049-index.htm",
-      "brief": null
-    },
-    {
-      "file_date": "2026-04-20",
-      "form_type": "DFAN14A",
-      "entity_name": "Impactive Capital LP (0001786767)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1786767/000092189526001035/0000921895-26-001035-index.htm",
-      "brief": null
-    },
-    {
-      "file_date": "2026-04-20",
-      "form_type": "DFAN14A",
-      "entity_name": "WEX Inc. (0001309108)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1309108/000092189526001035/0000921895-26-001035-index.htm",
-      "brief": null
-    },
-    {
-      "file_date": "2026-04-20",
-      "form_type": "DFAN14A",
-      "entity_name": "SUMMER ROAD LLC (0001604873)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1604873/000092189526001029/0000921895-26-001029-index.htm",
-      "brief": null
-    },
-    {
-      "file_date": "2026-04-20",
-      "form_type": "DFAN14A",
-      "entity_name": "INGLES MARKETS INC (0000050493)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/50493/000092189526001029/0000921895-26-001029-index.htm",
       "brief": null
     }
   ]
