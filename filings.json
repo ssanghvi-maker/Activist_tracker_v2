@@ -1,25 +1,66 @@
 {
-  "fetched_at": "2026-04-24 15:54 UTC",
-  "date_from": "2026-03-25",
-  "date_to": "2026-04-24",
-  "total": 4,
+  "fetched_at": "2026-04-27 17:11 UTC",
+  "date_from": "2026-03-28",
+  "date_to": "2026-04-27",
+  "total": 6,
   "filings": [
+    {
+      "file_date": "2026-04-27",
+      "form_type": "DFAN14A",
+      "entity_name": "SUMMER ROAD LLC (0001604873)",
+      "filer_names": [],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1604873/000092189526001082/0000921895-26-001082-index.htm",
+      "brief": {
+        "activist": "Summer Road LLC",
+        "target_company": "unknown",
+        "target_ticker": "",
+        "stake_size": "unknown",
+        "demand": "unknown",
+        "rationale": "unknown",
+        "watch_for": "DFAN14A filing indicates preliminary proxy solicitation by activist investor",
+        "confidence": "low"
+      }
+    },
+    {
+      "file_date": "2026-04-27",
+      "form_type": "DFAN14A",
+      "entity_name": "INGLES MARKETS INC (0000050493)",
+      "filer_names": [],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/50493/000092189526001082/0000921895-26-001082-index.htm",
+      "brief": {
+        "activist": "unknown",
+        "target_company": "Ingles Markets Inc",
+        "target_ticker": "IMKTA",
+        "stake_size": "unknown",
+        "demand": "unknown",
+        "rationale": "unknown",
+        "watch_for": "SEC filing details require access to actual document content",
+        "confidence": "low"
+      }
+    },
+    {
+      "file_date": "2026-04-24",
+      "form_type": "DFAN14A",
+      "entity_name": "GENCO SHIPPING & TRADING LTD (0001326200)",
+      "filer_names": [],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1326200/000091957426002407/0000919574-26-002407-index.htm",
+      "brief": null
+    },
+    {
+      "file_date": "2026-04-24",
+      "form_type": "DFAN14A",
+      "entity_name": "DIANA SHIPPING INC. (0001318885)",
+      "filer_names": [],
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/1318885/000091957426002407/0000919574-26-002407-index.htm",
+      "brief": null
+    },
     {
       "file_date": "2026-04-24",
       "form_type": "DFAN14A",
       "entity_name": "Seer, Inc. (0001726445)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1726445/000092189526001072/0000921895-26-001072-index.htm",
-      "brief": {
-        "activist": "unknown",
-        "target_company": "Seer, Inc.",
-        "target_ticker": "SEER",
-        "stake_size": "unknown",
-        "demand": "unknown",
-        "rationale": "unknown",
-        "watch_for": "unknown",
-        "confidence": "low"
-      }
+      "brief": null
     },
     {
       "file_date": "2026-04-24",
@@ -27,31 +68,6 @@
       "entity_name": "Radoff Bradley Louis (0001380585)",
       "filer_names": [],
       "filing_url": "https://www.sec.gov/Archives/edgar/data/1380585/000092189526001072/0000921895-26-001072-index.htm",
-      "brief": {
-        "activist": "Unknown - Radoff Bradley Louis (CIK 0001380585)",
-        "target_company": "Unknown - CIK 1380585 required to identify",
-        "target_ticker": "",
-        "stake_size": "unknown",
-        "demand": "unknown",
-        "rationale": "unknown",
-        "watch_for": "unknown",
-        "confidence": "low"
-      }
-    },
-    {
-      "file_date": "2026-04-22",
-      "form_type": "DFAN14A",
-      "entity_name": "Impactive Capital LP (0001786767)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1786767/000092189526001064/0000921895-26-001064-index.htm",
-      "brief": null
-    },
-    {
-      "file_date": "2026-04-22",
-      "form_type": "DFAN14A",
-      "entity_name": "WEX Inc. (0001309108)",
-      "filer_names": [],
-      "filing_url": "https://www.sec.gov/Archives/edgar/data/1309108/000092189526001064/0000921895-26-001064-index.htm",
       "brief": null
     }
   ]
